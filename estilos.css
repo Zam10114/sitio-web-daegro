@@ -14,11 +14,14 @@ body {
 
 /* Encabezado y Navegación */
 header {
-    background-color: #0c3c26; /* Verde oscuro agrícola */
+    background-color: #240046; /* Violeta muy oscuro y elegante para el fondo */
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul {
@@ -39,12 +42,14 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #4caf50; /* Verde brillante al pasar el cursor */
+    color: #c77dff; /* Lila brillante al pasar el cursor sobre los enlaces */
 }
 
 /* Sección Principal (Hero) */
 #inicio {
-    background: linear-gradient(rgba(12, 60, 38, 0.8), rgba(12, 60, 38, 0.8)), url('https://unsplash.com') no-repeat center center/cover;
+    /* Gradiente sutil que va desde el violeta oscuro de DAEGRO */
+    background: linear-gradient(rgba(36, 0, 70, 0.85), rgba(90, 24, 154, 0.85)), 
+                url('https://unsplash.com') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 6rem 2rem;
@@ -60,9 +65,9 @@ nav ul li a:hover {
     margin-bottom: 2rem;
 }
 
-/* Botón interactivo */
+/* Botón Principal (Formulario) */
 button {
-    background-color: #2196f3; /* Azul agua */
+    background-color: #7b2cbf; /* El morado exacto de tu logotipo */
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -74,8 +79,8 @@ button {
 }
 
 button:hover {
-    background-color: #1976d2;
-    transform: scale(1.05); /* Efecto de crecimiento sutil */
+    background-color: #9d4edd; /* Morado un poco más encendido al pasar el cursor */
+    transform: scale(1.05);
 }
 
 /* Sección de Soluciones */
@@ -88,7 +93,7 @@ button:hover {
 
 #sistemas h2 {
     margin-bottom: 2rem;
-    color: #0c3c26;
+    color: #240046; /* Título principal en violeta oscuro */
 }
 
 .contenedor-tarjetas {
@@ -100,12 +105,13 @@ button:hover {
 
 .tarjeta {
     background: white;
-    padding: 2rem;
+    padding: 0 !important; 
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     flex: 1;
     min-width: 280px;
-    border-top: 5px solid #4caf50;
+    overflow: hidden;
+    border-top: 5px solid #7b2cbf; /* Línea superior con el morado DAEGRO */
 }
 
 /* Pie de página */
@@ -168,10 +174,11 @@ footer {
     margin-top: 1.5rem;
 }
 
+/* Diseño del Formulario Interno (Modal) */
 #formularioRiego label {
     margin-bottom: 0.4rem;
     font-weight: 600;
-    color: #0c3c26;
+    color: #240046; /* Textos del formulario en violeta */
 }
 
 #formularioRiego input, #formularioRiego select {
@@ -184,8 +191,8 @@ footer {
 
 #formularioRiego input:focus, #formularioRiego select:focus {
     outline: none;
-    border-color: #2196f3; /* Borde azul al seleccionar */
-    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+    border-color: #7b2cbf; /* El borde se ilumina en morado al hacer clic */
+    box-shadow: 0 0 5px rgba(123, 44, 191, 0.3);
 }
 
 /* Ajustes para el Menú y el Logotipo */
@@ -217,9 +224,10 @@ header {
     transition: all 0.3s ease;
 }
 
+/* Botón Secundario (Descarga de PDF) */
 .boton-secundario:hover {
     background-color: #ffffff;
-    color: #0c3c26; /* Invierte los colores con el verde agrícola al pasar el cursor */
+    color: #5a189a; /* Texto morado profundo cuando se interactúa con él */
     transform: scale(1.05);
 }
 
@@ -232,9 +240,9 @@ header {
 .imagen-tarjeta {
     width: 100%;
     height: 180px;
-    object-fit: cover; /* Recorta la imagen proporcionalmente para que no se estire feo */
+    object-fit: cover;
     display: block;
-    border-bottom: 3px solid #4caf50; /* Línea divisoria verde */
+    border-bottom: 3px solid #7b2cbf; /* Línea divisoria de la foto en morado */
 }
 
 /* Devolvemos el padding a los textos internos para mantener el orden */
