@@ -1,0 +1,189 @@
+/* Configuración General y Portabilidad */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Encabezado y Navegación */
+header {
+    background-color: #0c3c26; /* Verde oscuro agrícola */
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #4caf50; /* Verde brillante al pasar el cursor */
+}
+
+/* Sección Principal (Hero) */
+#inicio {
+    background: linear-gradient(rgba(12, 60, 38, 0.8), rgba(12, 60, 38, 0.8)), url('https://unsplash.com') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+#inicio h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#inicio p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Botón interactivo */
+button {
+    background-color: #2196f3; /* Azul agua */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1976d2;
+    transform: scale(1.05); /* Efecto de crecimiento sutil */
+}
+
+/* Sección de Soluciones */
+#sistemas {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#sistemas h2 {
+    margin-bottom: 2rem;
+    color: #0c3c26;
+}
+
+.contenedor-tarjetas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tarjeta {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 280px;
+    border-top: 5px solid #4caf50;
+}
+
+/* Pie de página */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 4rem;
+}
+
+/* Estilos para el Formulario Flotante (Modal) */
+.modal-oculto {
+    display: none; /* Por defecto no se muestra */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(4px); /* Efecto desenfocado de fondo */
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Clase activa que usaremos con JavaScript */
+.modal-visible {
+    display: flex;
+}
+
+.contenido-modal {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.boton-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+.boton-cerrar:hover {
+    color: #ff0000;
+}
+
+/* Diseño del Formulario Interno */
+#formularioRiego {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+}
+
+#formularioRiego label {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #0c3c26;
+}
+
+#formularioRiego input, #formularioRiego select {
+    padding: 0.7rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#formularioRiego input:focus, #formularioRiego select:focus {
+    outline: none;
+    border-color: #2196f3; /* Borde azul al seleccionar */
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+}
