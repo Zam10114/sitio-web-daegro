@@ -5,11 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const botonCerrar = document.querySelector('.boton-cerrar');
     const formulario = document.getElementById('formularioRiego');
 
-    // 1. Abrir Modal al presionar el botón principal
+    // 1. Abrir Modal al presionar el botón principal y desplazar pantalla
     botonAsesoria.addEventListener('click', () => {
+        // Primero hacemos visible el modal quitando la clase que lo oculta
         modal.classList.remove('modal-oculto');
         modal.classList.add('modal-visible');
+
+        // Autodesplazamiento suave directo hacia el recuadro del formulario
+        const cuadroContenido = document.querySelector('.contenido-modal');
+        cuadroContenido.scrollIntoView({ 
+            behavior: 'smooth', // Hace que el movimiento sea sutil y fluido
+            block: 'center'     // Centra el formulario perfectamente en tu pantalla
+        });
     });
+
 
     // 2. Cerrar Modal al presionar la 'X'
     botonCerrar.addEventListener('click', () => {

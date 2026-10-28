@@ -222,3 +222,32 @@ header {
     color: #0c3c26; /* Invierte los colores con el verde agrícola al pasar el cursor */
     transform: scale(1.05);
 }
+
+/* Estilos para las Imágenes del Catálogo */
+.tarjeta {
+    padding: 0 !important; /* Quitamos el padding global para que la imagen toque los bordes superiores */
+    overflow: hidden; /* Asegura que las esquinas de la imagen se redondeen con la tarjeta */
+}
+
+.imagen-tarjeta {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Recorta la imagen proporcionalmente para que no se estire feo */
+    display: block;
+    border-bottom: 3px solid #4caf50; /* Línea divisoria verde */
+}
+
+/* Devolvemos el padding a los textos internos para mantener el orden */
+.tarjeta h3, .tarjeta p {
+    padding: 0 1.5rem;
+}
+
+.tarjeta h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta p {
+    margin-bottom: 1.5rem;
+    color: #555;
+}
