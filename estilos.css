@@ -187,3 +187,38 @@ footer {
     border-color: #2196f3; /* Borde azul al seleccionar */
     box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
 }
+
+/* Ajustes para el Menú y el Logotipo */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-sitio {
+    height: 50px;
+    width: auto;
+    display: inline-block; /* Cambia a inline-block para que respete el flujo del SVG */
+    vertical-align: middle;
+}
+
+/* Estilo para el Botón de Descarga del PDF */
+.boton-secundario {
+    display: inline-block;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.boton-secundario:hover {
+    background-color: #ffffff;
+    color: #0c3c26; /* Invierte los colores con el verde agrícola al pasar el cursor */
+    transform: scale(1.05);
+}
