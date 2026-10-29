@@ -12,11 +12,11 @@ body {
     line-height: 1.6;
 }
 
-/* Encabezado y Navegación */
+/* Encabezado y Navegación Global */
 header {
-    background-color: #240046; /* Violeta muy oscuro y elegante para el fondo */
+    background-color: #240046; /* Violeta muy oscuro */
     padding: 1rem 2rem;
-    position: sticky;
+    position: sticky; /* Mantiene el header fijo al hacer scroll */
     top: 0;
     z-index: 1000;
     display: flex;
@@ -261,12 +261,30 @@ header {
 }
 
 /* ==========================================================================
-   Ajustes Responsivos para Pantallas Verticales de Celular
+   CONFIGURACIÓN PARA COMPUTADORAS (PANTALLAS GRANDES)
+   ========================================================================== */
+@media (min-width: 601px) {
+    /* Ocultamos por completo el botón de tres rayitas en pantallas grandes */
+    .menu-hamburguesa {
+        display: none !important;
+    }
+    /* El menú se muestra horizontal y normal */
+    #menuNavegacion {
+        display: block !important;
+    }
+}
+
+/* ==========================================================================
+   CONFIGURACIÓN PARA MÓVILES Y PANTALLAS COMPACTAS (VERSIÓN LIMPIA)
    ========================================================================== */
 @media (max-width: 600px) {
-    /* --- Mostrar y Estilizar el Botón de 3 Rayitas --- */
+    .control-menu {
+        position: relative;
+    }
+
+    /* Mostrar y Estilizar el Botón de 3 Rayitas */
     .menu-hamburguesa {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         justify-content: space-between;
         width: 30px;
@@ -275,62 +293,66 @@ header {
         border: none;
         cursor: pointer;
         padding: 0;
-        z-index: 2001;
+        z-index: 3000;       
     }
     
-    .menu-hamburguesa:hover {
-        transform: none; /* Evitamos que el icono crezca como los botones normales */
-    }
-
     .menu-hamburguesa span {
         width: 100%;
         height: 3px;
-        background-color: #ffffff; /* Rayitas blancas */
+        background-color: #ffffff; 
         border-radius: 2px;
         transition: all 0.3s ease;
     }
 
-    /* --- Ocultar Menú y Prepararlo para Desplegarse --- */
-    nav {
-        position: absolute;
-        top: 70px; /* Se despliega justo abajo de la barra del header */
-        left: 0;
+    /* El Menú Desplegable (Estilo Tarjeta Flotante Elegante en Esquina Derecha) */
+    #menuNavegacion {
+        display: none; /* Oculto por defecto en móvil */
+        position: absolute; 
+        top: 45px; /* Se despliega exactamente abajo del botón */
+        right: 0;  /* Alineado al borde derecho de la pantalla */
+        width: 220px; 
+        background-color: #240046; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        border-radius: 8px;
+        z-index: 2999; 
+    }
+
+    #menuNavegacion ul {
+        display: flex !important;
+        flex-direction: column !important; /* Apilado vertical */
+        padding: 1rem 0 !important;
+        gap: 15px !important;
+        list-style: none !important;
+    }
+
+    #menuNavegacion ul li {
+        margin: 0 !important; 
         width: 100%;
-        background-color: #240046;
-        max-height: 0; /* Oculto por defecto mediante altura cero */
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        text-align: center;
     }
 
-    nav ul {
-        flex-direction: column; /* Enlaces uno debajo del otro */
-        align-items: center;
-        padding: 1.5rem 0;
-        gap: 15px;
+    #menuNavegacion ul li a {
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-weight: bold !important;
+        font-size: 1.1rem !important;
+        display: block;
+        padding: 10px 0;
     }
 
-    /* Clase activa que añadiremos con JavaScript para abrir el menú */
-    .menu-abierto {
-        max-height: 250px; /* Altura suficiente para mostrar las 4 opciones */
+    /* Clase activa que inyecta tu JavaScript al dar clic */
+    #menuNavegacion.menu-abierto {
+        display: block !important; /* Revela la tarjeta flotante */
     }
 
-    /* Animación opcional: Transforma las 3 rayitas en una 'X' al abrir */
-    .menu-hamburguesa.activo span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-hamburguesa.activo span:nth-child(2) { opacity: 0; }
-    .menu-hamburguesa.activo span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    /* Transformación de 3 rayitas a 'X' */
+    .menu-hamburguesa.activo span:nth-child(1) { transform: translateY(9px) rotate(45deg) !important; }
+    .menu-hamburguesa.activo span:nth-child(2) { opacity: 0 !important; }
+    .menu-hamburguesa.activo span:nth-child(3) { transform: translateY(-9px) rotate(-45deg) !important; }
 
-    /* --- Resto de ajustes responsivos anteriores --- */
+    /* Ajustes responsivos del cuerpo de la página */
     .contenedor-tarjetas { flex-direction: column; padding: 0 10px; }
     .tarjeta { width: 100%; margin-bottom: 20px; }
     #inicio h1 { font-size: 1.8rem; }
     #inicio button, .boton-secundario { display: block; width: 100%; margin: 10px 0 !important; text-align: center; }
 }
-
-/* Ocultar el botón de 3 rayitas por defecto en computadoras */
-@media (min-width: 601px) {
-    .menu-hamburguesa {
-        display: none;
-    }
-}
-
