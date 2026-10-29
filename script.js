@@ -52,4 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
         formulario.reset();
         cerrarModal();
     });
+
+        // --- LÓGICA DEL MENÚ DE HAMBURGUESA ---
+    const btnHamburguesa = document.getElementById('btnHamburguesa');
+    const menuNavegacion = document.getElementById('menuNavegacion');
+    const enlacesMenu = document.querySelectorAll('#menuNavegacion a');
+
+    // Alternar apertura al dar clic en las 3 rayitas
+    btnHamburguesa.addEventListener('click', () => {
+        btnHamburguesa.classList.toggle('activo'); // Activa la animación a 'X'
+        menuNavegacion.classList.toggle('menu-abierto'); // Despliega el menú
+    });
+
+    // Cerrar el menú automáticamente cuando se da clic en una opción (Inicio, Sistemas, etc.)
+    enlacesMenu.forEach(enlace => {
+        enlace.addEventListener('click', () => {
+            btnHamburguesa.classList.remove('activo');
+            menuNavegacion.classList.remove('menu-abierto');
+        });
+    });
+
 });

@@ -264,32 +264,73 @@ header {
    Ajustes Responsivos para Pantallas Verticales de Celular
    ========================================================================== */
 @media (max-width: 600px) {
-    /* Fuerza a las tarjetas a ponerse una debajo de la otra en lugar de ir de lado */
-    .contenedor-tarjetas {
+    /* --- Mostrar y Estilizar el Botón de 3 Rayitas --- */
+    .menu-hamburguesa {
+        display: flex;
         flex-direction: column;
-        padding: 0 10px;
-    }
-
-    .tarjeta {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    /* Evita que los botones rompan la pantalla achicando su texto ligeramente */
-    #inicio h1 {
-        font-size: 1.8rem; /* Texto principal más cómodo para celular */
-    }
-
-    button, .boton-secundario {
-        display: block;
-        width: 100%;
-        margin: 10px 0 !important; /* Apila los botones verticalmente con separación */
-        text-align: center;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 2001;
     }
     
-    /* Controla el menú de navegación superior para que no se amontone */
+    .menu-hamburguesa:hover {
+        transform: none; /* Evitamos que el icono crezca como los botones normales */
+    }
+
+    .menu-hamburguesa span {
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff; /* Rayitas blancas */
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* --- Ocultar Menú y Prepararlo para Desplegarse --- */
+    nav {
+        position: absolute;
+        top: 70px; /* Se despliega justo abajo de la barra del header */
+        left: 0;
+        width: 100%;
+        background-color: #240046;
+        max-height: 0; /* Oculto por defecto mediante altura cero */
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
     nav ul {
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-direction: column; /* Enlaces uno debajo del otro */
+        align-items: center;
+        padding: 1.5rem 0;
+        gap: 15px;
+    }
+
+    /* Clase activa que añadiremos con JavaScript para abrir el menú */
+    .menu-abierto {
+        max-height: 250px; /* Altura suficiente para mostrar las 4 opciones */
+    }
+
+    /* Animación opcional: Transforma las 3 rayitas en una 'X' al abrir */
+    .menu-hamburguesa.activo span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-hamburguesa.activo span:nth-child(2) { opacity: 0; }
+    .menu-hamburguesa.activo span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* --- Resto de ajustes responsivos anteriores --- */
+    .contenedor-tarjetas { flex-direction: column; padding: 0 10px; }
+    .tarjeta { width: 100%; margin-bottom: 20px; }
+    #inicio h1 { font-size: 1.8rem; }
+    #inicio button, .boton-secundario { display: block; width: 100%; margin: 10px 0 !important; text-align: center; }
+}
+
+/* Ocultar el botón de 3 rayitas por defecto en computadoras */
+@media (min-width: 601px) {
+    .menu-hamburguesa {
+        display: none;
     }
 }
+
