@@ -259,3 +259,37 @@ header {
     margin-bottom: 1.5rem;
     color: #555;
 }
+
+/* ==========================================================================
+   Ajustes Responsivos para Pantallas Verticales de Celular
+   ========================================================================== */
+@media (max-width: 600px) {
+    /* Fuerza a las tarjetas a ponerse una debajo de la otra en lugar de ir de lado */
+    .contenedor-tarjetas {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .tarjeta {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Evita que los botones rompan la pantalla achicando su texto ligeramente */
+    #inicio h1 {
+        font-size: 1.8rem; /* Texto principal más cómodo para celular */
+    }
+
+    button, .boton-secundario {
+        display: block;
+        width: 100%;
+        margin: 10px 0 !important; /* Apila los botones verticalmente con separación */
+        text-align: center;
+    }
+    
+    /* Controla el menú de navegación superior para que no se amontone */
+    nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
