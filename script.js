@@ -83,10 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const numeroTelefonoNegocio = "528713990921"; 
 
             // Abrir una nueva pestaña segura con la API de WhatsApp conteniendo el texto
-            window.open(`https://wa.me{numeroTelefonoNegocio}?text=${textoMensaje}`, '_blank');
+            window.open(`https://wa.me/${numeroTelefonoNegocio}?text=${textoMensaje}`, '_blank');
             
             formWhatsApp.reset(); // Limpiar el formulario localmente
         });
     }
-
 });
