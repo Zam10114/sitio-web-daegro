@@ -25,31 +25,21 @@
     <!-- Encabezado y Navegación -->
     <header>
         <div class="logo-contenedor">
-            <!-- SVG incrustado directamente (Evita bloqueos de seguridad del navegador en local) -->
-            <svg xmlns="http://w3.org" viewBox="0 0 160 50" class="logo-sitio">
-                <g transform="translate(5, 2)">
-                    <!-- Hexágono de Fondo (DAEGRO) -->
-                    <polygon points="23,5 41,15 41,35 23,45 5,35 5,15" fill="#7B2CBF" stroke="#ffffff" stroke-width="1.5"/>
-                    <!-- Silueta Interna en Blanco -->
-                    <path d="M18,15 L28,21 L28,29 L18,35 L13,25 Z" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
-                    <path d="M20,20 L25,25 L20,30" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-                </g>
-                <!-- Texto de la Empresa -->
-                <text x="55" y="33" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" letter-spacing="1">DAEGRO</text>
-            </svg>
+            <img src="imagenes/logo.svg" alt="DAEGRO - Integración Agrícola" class="logo-sitio" height="50">
         </div>
 
         <!-- CONTENEDOR AGRUPADOR -->
         <div class="control-menu">
             <!-- BOTÓN HAMBURGUESA -->
-            <button class="menu-hamburguesa" id="btnHamburguesa" aria-label="Abrir menú">
+            <button class="menu-hamburguesa" id="btnHamburguesa" type="button"
+                    aria-label="Menú" aria-expanded="false" aria-controls="menuNavegacion">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
             <!-- Menú de Navegación -->
-            <nav id="menuNavegacion">
+            <nav id="menuNavegacion" aria-label="Principal">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
@@ -100,14 +90,10 @@
             <!-- Bloque de Botones de Acción -->
             <div class="botones-hero">
                 <!-- Botón Verde de Acción Principal (Como en la referencia) -->
-                <button id="btnCotizar" class="boton-verde">
-                    ✈️ Solicitar Cotización o Consulta
-                </button>
+                <a href="#contacto" class="boton-verde">✈️ Solicitar Cotización o Consulta</a>
 
                 <!-- Botón de Crédito Secundario -->
-                <button id="btnEsquema" class="boton-esquema">
-                    📋 Esquema de Crédito
-                </button>
+                <a href="#credito" class="boton-esquema">📋 Esquema de Crédito</a>
             </div>
         </section>
 
@@ -177,7 +163,7 @@
                     <div class="icono-proceso">🚜</div>
                     <h3>2. Servicio de Excavación y Zanjeo</h3>
                     <p class="desc-proceso-principal">
-                        Contamos con maquinaria pesada especializada (como **Zanjadora Vermeer RTX450**) para zanjeo rápido, limpio y continuo en proyectos propios o contratos externos.
+                        Contamos con maquinaria pesada especializada (como <strong>Zanjadora Vermeer RTX450</strong>) para zanjeo rápido, limpio y continuo en proyectos propios o contratos externos.
                     </p>
                     <ul class="lista-proceso-viñetas">
                         <li>Canalizaciones agrícolas de alta eficiencia</li>
@@ -506,9 +492,7 @@
                 </div>
 
                 <!-- Botón de acción principal blanco -->
-                <button class="boton-asesor-parcela" onclick="window.location.href='#contacto'">
-                    👨‍🌾 Solicitar Asesorar en Parcela
-                </button>
+                <a href="#contacto" class="boton-asesor-parcela">👨‍🌾 Solicitar Asesoría en Parcela</a>
 
             </div>
         </section>
@@ -519,7 +503,7 @@
                 <span class="subtitulo-alianza">Alianza Estratégica</span>
                 <h2>Financiamiento para Proyectos de Tecnificación</h2>
                 <p class="descripcion-credito">
-                    En alianza con **Caja Solidaria**, facilitamos el acceso a esquemas financieros diseñados para la realidad del productor agrícola.
+                    En alianza con <strong>Caja Solidaria</strong>, facilitamos el acceso a esquemas financieros diseñados para la realidad del productor agrícola.
                 </p>
             </div>
 
@@ -590,7 +574,7 @@
                         <div class="bloque-resultados-simulador">
                             <div class="resultado-item">
                                 <p class="etiqueta-resultado">Pago Estimado Anual Aprox.*</p>
-                                <span id="calcPagoAnual" class="monto-resultado">$39,333 MXN</span>
+                                <span id="calcPagoAnual" class="monto-resultado">$- MXN</span>
                             </div>
                             <div class="resultado-item">
                                 <p class="etiqueta-resultado">Financiamiento Máximo</p>
@@ -600,9 +584,7 @@
 
                         <p class="nota-legal-simulador">*Cálculo meramente referencial sujeto a aprobación de crédito, garantías y condiciones vigentes de Caja Solidaria.</p>
 
-                        <button class="boton-tramitar-credito" onclick="window.location.href='#contacto'">
-                            ✈️ Tramitar Solicitud de Crédito
-                        </button>
+                        <a href="#contacto" class="boton-tramitar-credito">✈️ Tramitar Solicitud de Crédito</a>
                     </div>
                 </div>
 

@@ -1,21 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-        // --- LÓGICA DEL MENÚ DE HAMBURGUESA ---
+    // --- LÓGICA DEL MENÚ DE HAMBURGUESA ---
     const btnHamburguesa = document.getElementById('btnHamburguesa');
     const menuNavegacion = document.getElementById('menuNavegacion');
     const enlacesMenu = document.querySelectorAll('#menuNavegacion a');
 
-    // Alternar apertura al dar clic en las 3 rayitas
+    // Una sola función decide el estado del menú: así nada queda desincronizado
+    function establecerMenu(abierto) {
+        btnHamburguesa.classList.toggle('activo', abierto);
+        menuNavegacion.classList.toggle('menu-abierto', abierto);
+        btnHamburguesa.setAttribute('aria-expanded', String(abierto));
+    }
+
     btnHamburguesa.addEventListener('click', () => {
-        btnHamburguesa.classList.toggle('activo'); // Activa la animación a 'X'
-        menuNavegacion.classList.toggle('menu-abierto'); // Despliega el menú
+        const estaAbierto = btnHamburguesa.getAttribute('aria-expanded') === 'true';
+        establecerMenu(!estaAbierto);
     });
 
-    // Cerrar el menú automáticamente cuando se da clic en una opción (Inicio, Sistemas, etc.)
+    // Cerrar al elegir una opción
     enlacesMenu.forEach(enlace => {
-        enlace.addEventListener('click', () => {
-            btnHamburguesa.classList.remove('activo');
-            menuNavegacion.classList.remove('menu-abierto');
-        });
+        enlace.addEventListener('click', () => establecerMenu(false));
+    });
+
+    // Cerrar con Escape y devolver el foco al botón
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && btnHamburguesa.getAttribute('aria-expanded') === 'true') {
+            establecerMenu(false);
+            btnHamburguesa.focus();
+        }
     });
 
     // ==========================================
@@ -27,6 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtPlazo = document.getElementById('txtPlazo');
     const calcPagoAnual = document.getElementById('calcPagoAnual');
 
+    // Tasa anual de referencia (decimal). OJO: 0.18 es solo de práctica, ver nota abajo.
+    const TASA_ANUAL_REFERENCIA = 0.18;
+
+    function calcularPagoAnual(monto, anios, tasa) {
+        if (tasa === 0) return monto / anios; // evita dividir entre cero
+        return monto * tasa / (1 - Math.pow(1 + tasa, -anios));
+    }
+
     function calcularCredito() {
         const monto = parseInt(rangeMonto.value);
         const plazo = parseInt(rangePlazo.value);
@@ -37,10 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Formatear texto del Plazo actual
         txtPlazo.textContent = `${plazo} ${plazo === 1 ? 'Año' : 'Años'}`;
         
-        // Fórmula básica referencial: (Capital / Plazo) + Interés Estimado Promedio Anual (14% base)
-        const capitalAnual = monto / plazo;
-        const interesEstimadoAnual = monto * 0.06;
-        const pagoAnualTotal = Math.round(capitalAnual + (interesEstimadoAnual / (plazo === 1 ? 1 : 1.5)));
+        const pagoAnualTotal = Math.round(calcularPagoAnual(monto, plazo, TASA_ANUAL_REFERENCIA));
 
         // Inyectar el resultado formateado en la tarjeta de salida
         calcPagoAnual.textContent = `$${pagoAnualTotal.toLocaleString('es-MX')} MXN`;
@@ -71,20 +87,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensaje = document.getElementById('cMensaje').value || 'Sin detalles adicionales';
 
             // Redactar el texto codificado de manera segura para la URL de WhatsApp
-            const textoMensaje = `Hola DAEGRO, solicito información.%0A%0A` +
-                                 `• *Nombre:* ${nombre}%0A` +
-                                 `• *Teléfono:* ${telefono}%0A` +
-                                 `• *Ubicación:* ${ubicacion}%0A` +
-                                 `• *Cultivo/Proyecto:* ${cultivo}%0A` +
-                                 `• *Interés:* ${interes}%0A` +
-                                 `• *Mensaje:* ${mensaje}`;
+            const texto = [
+                'Hola DAEGRO, solicito información.',
+                '',
+                `• *Nombre:* ${nombre.trim().slice(0, 100)}`,
+                `• *Teléfono:* ${telefono.trim().slice(0, 20)}`,
+                `• *Ubicación:* ${ubicacion.trim().slice(0, 100)}`,
+                `• *Cultivo/Proyecto:* ${cultivo.trim().slice(0, 100)}`,
+                `• *Interés:* ${interes}`,
+                `• *Mensaje:* ${mensaje.trim().slice(0, 500)}`
+            ].join('\n');
 
-            // Número de WhatsApp principal del negocio de tus socios (en formato internacional)
-            const numeroTelefonoNegocio = "528713990921"; 
+            const numeroTelefonoNegocio = "528713990921";
+            const url = `https://wa.me/${numeroTelefonoNegocio}?text=${encodeURIComponent(texto)}`;
 
-            // Abrir una nueva pestaña segura con la API de WhatsApp conteniendo el texto
-            window.open(`https://wa.me/${numeroTelefonoNegocio}?text=${textoMensaje}`, '_blank');
-            
+            window.open(url, '_blank', 'noopener,noreferrer');
+
             formWhatsApp.reset(); // Limpiar el formulario localmente
         });
     }
