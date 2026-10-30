@@ -8,6 +8,20 @@
 </head>
 <body>
 
+    <!-- Barra Informativa Superior (Topbar) -->
+    <div class="topbar">
+        <div class="topbar-izq">
+            <span>📍 Torreón, Coahuila | Av. 5A #724 Col. Eduardo Guerra</span>
+            <span class="separador">|</span>
+            <span>🌱 Desde 2024 impulsando el campo</span>
+        </div>
+        <div class="topbar-der">
+            <a href="tel:8713990921">📞 871 399 0921</a>
+            <span class="separador">|</span>
+            <a href="mailto:contacto.daegro@gmail.com">✉️ contacto.daegro@gmail.com</a>
+        </div>
+    </div>
+
     <!-- Encabezado y Navegación -->
     <header>
         <div class="logo-contenedor">
@@ -25,9 +39,9 @@
             </svg>
         </div>
 
-        <!-- 🌟 NUEVO CONTENEDOR AGRUPADOR -->
+        <!-- CONTENEDOR AGRUPADOR -->
         <div class="control-menu">
-            <!-- BOTÓN HAMBURGUESA (Nuevo) -->
+            <!-- BOTÓN HAMBURGUESA -->
             <button class="menu-hamburguesa" id="btnHamburguesa" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
@@ -38,9 +52,15 @@
             <nav id="menuNavegacion">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sistemas">Nuestros Sistemas</a></li>
-                    <li><a href="#beneficios">Beneficios</a></li>
-                    <li><a href="#contacto">Cotizar</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#riego">Riego</a></li>
+                    <li><a href="#bombeo">Bombeo</a></li>
+                    <li><a href="#automatizacion">Automatización</a></li>
+                    <li><a href="#proteccion">Protección</a></li>
+                    <li><a href="#asesoria">Asesoría</a></li>
+                    <li><a href="#credito">Crédito</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -49,17 +69,708 @@
     <main>
         <!-- Sección Principal / Hero -->
         <section id="inicio">
-            <h1>Riego tecnificado, asesoría y productos de nutrición y protección para parcelas altamente productivas</h1>
-            <p>Diseño e instalación de sistemas por goteo, aspersión y automatizados.</p>
-            
-            <!-- Botón Principal (Azul) -->
-            <button>Solicitar Asesoría Técnica</button>
+            <!-- Pequeña etiqueta superior de ubicación -->
+            <div class="etiqueta-ubicacion">
+                <span>⚙️ Integración Agrícola Completa | Torreón, Coahuila</span>
+            </div>
 
-            <!-- Botón Secundario (Transparente / Blanco) -->
-            <a href="./documentos/catalogo-tecnico.pdf" download="Catalogo_Sistemas_de_Riego.pdf" class="boton-secundario">
-                Descargar Catálogo de Productos (PDF)
-            </a>
+            <!-- Título Principal Comercial -->
+            <h1>Soluciones Integrales para <br><span class="texto-resaltado">la Tecnificación Agrícola</span></h1>
+            
+            <!-- Párrafo Descriptivo Real -->
+            <p class="descripcion-hero">
+                Desde el levantamiento topográfico y diseño, hasta la instalación, automatización 
+                y el acompañamiento agronómico continuo para maximizar la productividad de tus 
+                cultivos en cada ciclo.
+            </p>
+
+            <!-- Las 3 Características Destacadas (NUEVO) -->
+            <div class="caracteristicas-hero">
+                <div class="item-caracteristica">
+                    <span>🔑 Proyectos Llave en Mano</span>
+                </div>
+                <div class="item-caracteristica">
+                    <span>💳 Financiamiento hasta 100% (5 años)</span>
+                </div>
+                <div class="item-caracteristica">
+                    <span>🌾 Acompañamiento hasta Cosecha</span>
+                </div>
+            </div>
+
+            <!-- Bloque de Botones de Acción -->
+            <div class="botones-hero">
+                <!-- Botón Verde de Acción Principal (Como en la referencia) -->
+                <button id="btnCotizar" class="boton-verde">
+                    ✈️ Solicitar Cotización o Consulta
+                </button>
+
+                <!-- Botón de Crédito Secundario -->
+                <button id="btnEsquema" class="boton-esquema">
+                    📋 Esquema de Crédito
+                </button>
+            </div>
         </section>
+
+        <!-- Sección de Servicios / Diferencia Competitiva -->
+        <section id="servicios">
+            <div class="contenedor-servicios-encabezado">
+                <span class="subtitulo-competitiva">Nuestra Diferencia Competitiva</span>
+                <h2>No solo vendemos equipos; caminamos con el productor</h2>
+                <p class="descripcion-servicios">
+                    En DAEGRO estamos convencidos de que el éxito de una inversión en riego tecnificado depende de 
+                    una integración perfecta entre la ingeniería hidráulica y el manejo agronómico de precisión.
+                </p>
+            </div>
+
+            <!-- Contenedor con las 4 Tarjetas de Servicios -->
+            <div class="cuadrícula-servicios">
+                
+                <!-- Tarjeta 1: Ingeniería & Diseño -->
+                <div class="tarjeta-servicio">
+                    <div class="icono-servicio">📐</div>
+                    <h3>Ingeniería & Diseño</h3>
+                    <p>Levantamiento topográfico de alta precisión, estudio hídrico y cálculo dimensional a la medida de tu predio.</p>
+                </div>
+
+                <!-- Tarjeta 2: Instalación y Zanjeo -->
+                <div class="tarjeta-servicio">
+                    <div class="icono-servicio">⚙️</div>
+                    <h3>Instalación y Zanjeo</h3>
+                    <p>Infraestructura propia con zanjadoras pesadas y técnicos capacitados para instalaciones duraderas y eficientes.</p>
+                </div>
+
+                <!-- Tarjeta 3: Protección & Nutrición -->
+                <div class="tarjeta-servicio">
+                    <div class="icono-servicio">🌱</div>
+                    <h3>Protección & Nutrición</h3>
+                    <p>Líneas de insumos agrícolas de primera marca para sanidad vegetal, fertilización y bioestimulación.</p>
+                </div>
+
+                <!-- Tarjeta 4: Acompañamiento continuo -->
+                <div class="tarjeta-servicio">
+                    <div class="icono-servicio">👨‍🌾</div>
+                    <h3>Acompañamiento continuo</h3>
+                    <p>Nuestros agrónomos calibran el riego y la nutrición cultivo a cultivo para asegurar máxima rentabilidad.</p>
+                </div>
+            </div>
+
+            <!-- Bloque de Procesos Técnicos (Nuevo) -->
+            <div class="contenedor-procesos-tecnicos">
+                
+                <!-- Tarjeta 1: Topografía -->
+                <div class="tarjeta-proceso">
+                    <div class="icono-proceso">🗺️</div>
+                    <h3>1. Topografía y Diseño Hidráulico</h3>
+                    <p class="desc-proceso-principal">
+                        Levantamiento geotécnico y topográfico de precisión. Elaboración de planos ejecutivos, cálculos de pérdida de carga, zonificación y distribución de caudales óptimos.
+                    </p>
+                    <ul class="lista-proceso-viñetas">
+                        <li>Delimitación precisa de parcelas</li>
+                        <li>Modelación de curvas de nivel</li>
+                        <li>Diseño personalizado de cabezales</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 2: Excavación y Zanjeo (Destacada) -->
+                <div class="tarjeta-proceso destacada">
+                    <span class="badge-destacado">Servicio Destacado</span>
+                    <div class="icono-proceso">🚜</div>
+                    <h3>2. Servicio de Excavación y Zanjeo</h3>
+                    <p class="desc-proceso-principal">
+                        Contamos con maquinaria pesada especializada (como **Zanjadora Vermeer RTX450**) para zanjeo rápido, limpio y continuo en proyectos propios o contratos externos.
+                    </p>
+                    <ul class="lista-proceso-viñetas">
+                        <li>Canalizaciones agrícolas de alta eficiencia</li>
+                        <li>Fraccionamientos residenciales e industriales</li>
+                        <li>Instalación de redes de agua, fibra y gas</li>
+                    </ul>
+                    <a href="#contacto" class="enlace-proceso-accion">Solicitar servicio de zanjeo →</a>
+                </div>
+
+                <!-- Tarjeta 3: Instalación -->
+                <div class="tarjeta-proceso">
+                    <div class="icono-proceso">💧</div>
+                    <h3>3. Instalación y Puesta en Marcha</h3>
+                    <p class="desc-proceso-principal">
+                        Montaje profesional de tubos principales, subcolectores, mangueras, emisores, filtración, automatismos y sistemas de bombeo con garantía de instalación.
+                    </p>
+                    <ul class="lista-proceso-viñetas">
+                        <li>Pruebas de presión e hidrometría</li>
+                        <li>Capacitación al personal de campo</li>
+                        <li>Refaccionamiento y mantenimiento postventa</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Sistemas de Riego -->
+        <section id="riego">
+            <div class="contenedor-riego-encabezado">
+                <span class="subtitulo-eficiencia">Eficiencia Hídrica</span>
+                <h2>Sistemas de Riego Tecnificado</h2>
+                <p class="descripcion-riego">
+                    Diseñamos e instalamos la tecnología de emisión de agua que mejor se adapta a tu cultivo, tipo de suelo y disponibilidad de agua.
+                </p>
+            </div>
+
+            <!-- Rejilla de 6 soluciones de riego -->
+            <div class="cuadrícula-riego">
+                
+                <!-- Tarjeta 1: Goteo Superficial -->
+                <div class="tarjeta-riego-tecnico">
+                    <div class="header-tarjeta-riego">
+                        <div class="icono-riego-item azul-claro">💧</div>
+                        <span class="badge-tecnico">Alta Eficiencia (95%)</span>
+                    </div>
+                    <h3>Goteo Superficial</h3>
+                    <p>Cinta o manguera con gotero integrado de alta precisión. Ideal para hortalizas, nogales, vid y cultivos en hilera con dosis exactas de agua y fertilizante.</p>
+                    <a href="#contacto" class="enlace-riego-tecnico">Ver aplicaciones y ventajas →</a>
+                </div>
+
+                <!-- Tarjeta 2: Goteo Subsuperficial -->
+                <div class="tarjeta-riego-tecnico">
+                    <div class="header-tarjeta-riego">
+                        <div class="icono-riego-item morado-claro">🍇</div>
+                        <span class="badge-tecnico">Alfalfa & Forrajes</span>
+                    </div>
+                    <h3>Goteo Subsuperficial (SDI)</h3>
+                    <p>Instalación enterrada de líneas de goteo con tecnología antirraíz. Cero evaporación, mayor durabilidad y no interfiere con el paso del maquinado.</p>
+                    <a href="#contacto" class="enlace-riego-tecnico">Ver aplicaciones y ventajas →</a>
+                </div>
+
+                <!-- Tarjeta 3: Aspersión y Microaspersión -->
+                <div class="tarjeta-riego-tecnico">
+                    <div class="header-tarjeta-riego">
+                        <div class="icono-riego-item azul-mar">💦</div>
+                        <span class="badge-tecnico">Frutales & Huertos</span>
+                    </div>
+                    <h3>Aspersión y Microaspersión</h3>
+                    <p>Sistemas diseñados para cobertura completa o microzonas bajo copa. Excelente para control microclimático, protección antiheladas y huertos frutales.</p>
+                    <a href="#contacto" class="enlace-riego-tecnico">Ver aplicaciones y ventajas →</a>
+                </div>
+
+                <!-- Tarjeta 4: Pivote Central -->
+                <div class="tarjeta-riego-tecnico">
+                    <div class="header-tarjeta-riego">
+                        <div class="icono-riego-item verde-claro">🌾</div>
+                        <span class="badge-tecnico">Grandes Extensiones</span>
+                    </div>
+                    <h3>Pivote Central</h3>
+                    <p>Sistemas de aspersión mecanizada pivotante para el riego automatizado de extensas hectáreas de maíz, trigo, algodón y cultivos extensivos.</p>
+                    <a href="#contacto" class="enlace-riego-tecnico">Ver aplicaciones y ventajas →</a>
+                </div>
+
+                <!-- Tarjeta 5: Avance Frontal -->
+                <div class="tarjeta-riego-tecnico">
+                    <div class="header-tarjeta-riego">
+                        <div class="icono-riego-item azul-oscuro">➡️</div>
+                        <span class="badge-tecnico">Parcelas Rectangulares</span>
+                    </div>
+                    <h3>Avance Frontal</h3>
+                    <p>Mecanización de avance lineal para terrenos rectangulares, aprovechando hasta el 98% de la superficie útil de la parcela.</p>
+                    <a href="#contacto" class="enlace-riego-tecnico">Ver aplicaciones y ventajas →</a>
+                </div>
+
+                <!-- Tarjeta 6: Enrolladores / Cañón Viajero -->
+                <div class="tarjeta-riego-tecnico">
+                    <div class="header-tarjeta-riego">
+                        <div class="icono-riego-item naranja-claro">⚙️</div>
+                        <span class="badge-tecnico">Movilidad & Versatilidad</span>
+                    </div>
+                    <h3>Enrolladores / Cañón Viajero</h3>
+                    <p>Equipos móviles autopropulsados para irrigar múltiples campos con bajo costo de inversión inicial e instalación sumamente flexible.</p>
+                    <a href="#contacto" class="enlace-riego-tecnico">Ver aplicaciones y ventajas →</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección de Sistemas de Bombeo y Filtración -->
+        <section id="bombeo">
+            <div class="contenedor-bombeo-encabezado">
+                <span class="subtitulo-corazon">Corazón del Sistema</span>
+                <h2>Sistemas de Bombeo, Filtración y Cabezales de Fertirriego</h2>
+                <p class="descripcion-bombeo">
+                    Suministro de agua limpia, constante y con la dosificación nutricional óptima para proteger los emisores y nutrir las raíces.
+                </p>
+            </div>
+
+            <!-- Rejilla de 3 pilares de equipamiento hidráulico -->
+            <div class="cuadrícula-bombeo">
+                
+                <!-- Tarjeta 1: Equipos de Bombeo -->
+                <div class="tarjeta-bombeo-tecnico">
+                    <div class="icono-bombeo-cabecera">⚙️</div>
+                    <h3>Equipos de Bombeo</h3>
+                    <ul class="lista-bombeo-check">
+                        <li>Bombas sumergibles para pozo profundo.</li>
+                        <li>Bombas centrífugas horizontales y verticales.</li>
+                        <li>Sistemas de bombeo solar fotovoltaico para ahorro de energía eléctrica o diésel.</li>
+                        <li>Motores eléctricos de alta eficiencia e impulsión diésel.</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 2: Sistemas de Filtración -->
+                <div class="tarjeta-bombeo-tecnico">
+                    <div class="icono-bombeo-cabecera">🔮</div>
+                    <h3>Sistemas de Filtración</h3>
+                    <ul class="lista-bombeo-check">
+                        <li>Filtros de Grava / Arena de cuarzo para materia orgánica y algas en agua de presa/canal.</li>
+                        <li>Filtros de Discos automáticos de retrolavado continuo.</li>
+                        <li>Filtros de Malla manuales y semiautomáticos.</li>
+                        <li>Hidrociclones para separación de arenas.</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 3: Fertirriego y Dosificación -->
+                <div class="tarjeta-bombeo-tecnico">
+                    <div class="icono-bombeo-cabecera">🧪</div>
+                    <h3>Fertirriego y Dosificación</h3>
+                    <ul class="lista-bombeo-check">
+                        <li>Inyectores tipo Venturi de alta eficiencia.</li>
+                        <li>Tanques de fertilización de acero inoxidable o polietileno.</li>
+                        <li>Bombas inyectoras multifuncionales hidráulicas y eléctricas.</li>
+                        <li>Cabezales automatizados con control proporcional por CE y pH.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Automatización y Agricultura Digital -->
+        <section id="automatizacion">
+            <div class="contenedor-dos-columnas">
+                
+                <!-- Columna Izquierda: Información Técnica -->
+                <div class="columna-info-automatizacion">
+                    <span class="subtitulo-digital">Agricultura Digital</span>
+                    <h2>Automatización y Monitoreo de Humedad en Tiempo Real</h2>
+                    <p class="desc-automatizacion">
+                        Toma decisiones basadas en datos reales. Integramos sistemas remotos para controlar válvulas hidráulicas, monitorear la tensión hídrica en el perfil del suelo y optimizar la energía eléctrica sin desplazamientos innecesarios al campo.
+                    </p>
+
+                    <!-- Lista de Características -->
+                    <div class="lista-caracteristicas-digitales">
+                        <div class="item-digital">
+                            <div class="icono-digital-circulo">📡</div>
+                            <div>
+                                <h3>Telemetría y Control Remoto</h3>
+                                <p>Apertura y cierre de válvulas mediante radiofrecuencia o señal celular desde tu smartphone o computadora.</p>
+                            </div>
+                        </div>
+
+                        <div class="item-digital">
+                            <div class="icono-digital-circulo">📉</div>
+                            <div>
+                                <h3>Sondas de Humedad Multi-Profundidad</h3>
+                                <p>Lectura constante del consumo de agua por la raíz para evitar sobreriego, lixiviación de fertilizantes o estrés hídrico.</p>
+                            </div>
+                        </div>
+
+                        <div class="item-digital">
+                            <div class="icono-digital-circulo">🧭</div>
+                            <div>
+                                <h3>Sensores de Presión y Flujo</h3>
+                                <p>Alertas instantáneas ante fugas, taponamiento de goteros o bajadas de presión en la tubería principal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Simulación del Panel de Control Digital con CSS -->
+                <div class="columna-panel-simulador">
+                    <div class="interfaz-monitor">
+                        <div class="monitor-header">
+                            <div>
+                                <p class="monitor-tag">Panel de Control de Riego</p>
+                                <h3>Monitoreo de Parcela #4</h3>
+                            </div>
+                            <span class="punto-en-linea"></span>
+                        </div>
+
+                        <!-- Bloque de Métrica de Datos -->
+                        <div class="monitor-tarjetas-datos">
+                            <div class="subtarjeta-dato">
+                                <p>Humedad Suelo (30cm)</p>
+                                <span class="valor-dato">28.4 %</span>
+                                <p class="rango-optimo">✓ Rango Óptimo</p>
+                            </div>
+                            <div class="subtarjeta-dato">
+                                <p>Presión Cabezal</p>
+                                <span class="valor-dato">3.2 bar</span>
+                                <p class="estado-bomba">Bomba 100 HP activa</p>
+                            </div>
+                        </div>
+
+                        <!-- Barra de Progreso del Turno -->
+                        <div class="monitor-progreso-seccion">
+                            <div class="progreso-texto">
+                                <span>Progreso Turno de Riego #2</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="barra-fondo-progreso">
+                                <div class="barra-llena-progreso"></div>
+                            </div>
+                        </div>
+
+                        <p class="monitor-nota-pie">
+                            "Diseñamos tableros automatizados para que configures tiempos de fertilización, lavados automáticos de filtros y turnos de riego de manera sencilla."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección de Protección y Nutrición de Cultivos -->
+        <section id="proteccion">
+            <div class="contenedor-proteccion-encabezado">
+                <span class="subtitulo-sanidad">Sanidad y Nutrición Agrícola</span>
+                <h2>Protección y Nutrición de Cultivos</h2>
+                <p class="descripcion-proteccion">
+                    Ofrecemos un portafolio integral de agroquímicos, biológicos, bioestimulantes y fertilizantes especiales respaldados por alianzas con las marcas líderes del sector.
+                </p>
+            </div>
+
+            <!-- Subsección de Marcas Socias de Distribución -->
+            <div class="bloque-marcas-socias">
+                <p class="titulo-marcas">Marcas Estratégicas y Socios de Distribución</p>
+                <div class="cuadrícula-marcas">
+                    <div class="tarjeta-marca">
+                        <span class="icono-marca-v">🌱</span>
+                        <h4>Algas Pacific</h4>
+                        <p>Bionutrición marina</p>
+                    </div>
+                    <div class="tarjeta-marca">
+                        <span class="icono-marca-v">🛡️</span>
+                        <h4>Rainbow</h4>
+                        <p>Protección fitosanitaria</p>
+                    </div>
+                    <div class="tarjeta-marca">
+                        <span class="icono-marca-v">🧬</span>
+                        <h4>Smartec</h4>
+                        <p>Tecnología en nutrición</p>
+                    </div>
+                    <div class="tarjeta-marca">
+                        <span class="icono-marca-v">🧪</span>
+                        <h4>Spraytec</h4>
+                        <p>Coadyuvantes y fisiología</p>
+                    </div>
+                    <div class="tarjeta-marca">
+                        <span class="icono-marca-v">🍂</span>
+                        <h4>TerraFeed</h4>
+                        <p>Fertilizantes de alta pureza</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cuadrícula de las 4 soluciones de insumos -->
+            <div class="cuadrícula-insumos">
+                <div class="tarjeta-insumo">
+                    <h3>🦟 Insecticidas</h3>
+                    <p>Control sistémico y de contacto para trips, plagas chupadoras, gusanos y plagas de suelo.</p>
+                </div>
+                <div class="tarjeta-insumo">
+                    <h3>🧫 Fungicidas</h3>
+                    <p>Prevención y curación contra tizones, mildius, fusarium y enfermedades foliares y radiculares.</p>
+                </div>
+                <div class="tarjeta-insumo">
+                    <h3>🚫 Herbicidas</h3>
+                    <p>Soluciones pre-emergentes y post-emergentes selectivas para malezas de hoja ancha y angosta.</p>
+                </div>
+                <div class="tarjeta-insumo">
+                    <h3>🍇 Bioestimulantes</h3>
+                    <p>Extractos de algas, aminoácidos, enraizadores y activadores de defensas contra estrés térmico e hídrico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Asesoría Agronómica -->
+        <section id="asesoria">
+            <div class="bloque-tarjeta-asesoria">
+                
+                <!-- Etiqueta ovalada superior -->
+                <span class="badge-acompañamiento">Acompañamiento Técnico Total</span>
+                
+                <h2>Asesoría Agronómica hasta Cosecha</h2>
+                
+                <p class="desc-asesoria">
+                    Nuestra asesoría técnica no concluye al entregar la llave del sistema de riego. Nuestros ingenieros agrónomos monitorean la curva nutricional de tus cultivos, calibran dosis de riego por fenología y previenen fitosanidades.
+                </p>
+
+                <!-- Rejilla interna de 2 columnas de checks técnicos -->
+                <div class="cuadrícula-checks-asesoria">
+                    <div class="check-asesoria-item">✔ Análisis de Suelo y Agua</div>
+                    <div class="check-asesoria-item">✔ Programas de Fertirriego a Medida</div>
+                    <div class="check-asesoria-item">✔ Manejo Integrado de Plagas (MIP)</div>
+                    <div class="check-asesoria-item">✔ Evaluación de Eficiencia Hídrica</div>
+                </div>
+
+                <!-- Botón de acción principal blanco -->
+                <button class="boton-asesor-parcela" onclick="window.location.href='#contacto'">
+                    👨‍🌾 Solicitar Asesorar en Parcela
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Sección de Crédito y Simulador Financiero -->
+        <section id="credito">
+            <div class="contenedor-credito-encabezado">
+                <span class="subtitulo-alianza">Alianza Estratégica</span>
+                <h2>Financiamiento para Proyectos de Tecnificación</h2>
+                <p class="descripcion-credito">
+                    En alianza con **Caja Solidaria**, facilitamos el acceso a esquemas financieros diseñados para la realidad del productor agrícola.
+                </p>
+            </div>
+
+            <div class="contenedor-dos-columnas-credito">
+                
+                <!-- Columna Izquierda: Beneficios del Crédito -->
+                <div class="columna-tarjetas-beneficios">
+                    <div class="tarjeta-beneficio-credito">
+                        <span class="icono-credito-b">%</span>
+                        <div>
+                            <h3>Hasta 100% de Financiamiento</h3>
+                            <p>Cubre la totalidad del costo del proyecto (diseño, zanjeo, equipamiento e instalación) sin descapitalizar tu operación.</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-beneficio-credito">
+                        <span class="icono-credito-b">📅</span>
+                        <div>
+                            <h3>Plazos Adaptables de hasta 5 Años</h3>
+                            <p>Plazos diseñados de acuerdo con tus ciclos de cosecha y ventas agrícolas (anuales, semestrales o amortizaciones flexibles).</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-beneficio-credito">
+                        <span class="icono-credito-b">🏦</span>
+                        <div>
+                            <h3>Tasas Altamente Competitivas</h3>
+                            <p>Soporte y gestión de expediente directo con Caja Solidaria para agilizar la aprobación y desembolso del proyecto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: El Simulador Interactivo Funcional -->
+                <div class="columna-simulador-calculadora">
+                    <div class="caja-simulador">
+                        <div class="header-simulador">
+                            <h3>Simulador de Financiamiento Agrícola</h3>
+                            <span class="icono-calculadora-p">📋</span>
+                        </div>
+                        
+                        <!-- Entrada 1: Monto del Proyecto -->
+                        <div class="control-slider">
+                            <div class="labels-slider">
+                                <span>Monto Estimado del Proyecto:</span>
+                                <span id="txtMonto" class="valor-resaltado-simulador">$100,000 MXN</span>
+                            </div>
+                            <input type="range" id="rangeMonto" min="100000" max="5000000" step="10000" value="100000">
+                            <div class="rango-limites">
+                                <span>$100,000 MXN</span>
+                                <span>$5,000,000 MXN</span>
+                            </div>
+                        </div>
+
+                        <!-- Entrada 2: Plazo en Años -->
+                        <div class="control-slider">
+                            <div class="labels-slider">
+                                <span>Plazo en Años:</span>
+                                <span id="txtPlazo" class="valor-resaltado-simulador">3 Años</span>
+                            </div>
+                            <input type="range" id="rangePlazo" min="1" max="5" step="1" value="3">
+                            <div class="rango-limites">
+                                <span>1 Año</span>
+                                <span>5 Años</span>
+                            </div>
+                        </div>
+
+                        <!-- Bloque de Resultados de Salida -->
+                        <div class="bloque-resultados-simulador">
+                            <div class="resultado-item">
+                                <p class="etiqueta-resultado">Pago Estimado Anual Aprox.*</p>
+                                <span id="calcPagoAnual" class="monto-resultado">$39,333 MXN</span>
+                            </div>
+                            <div class="resultado-item">
+                                <p class="etiqueta-resultado">Financiamiento Máximo</p>
+                                <span class="monto-resultado color-morado">100% del Costo</span>
+                            </div>
+                        </div>
+
+                        <p class="nota-legal-simulador">*Cálculo meramente referencial sujeto a aprobación de crédito, garantías y condiciones vigentes de Caja Solidaria.</p>
+
+                        <button class="boton-tramitar-credito" onclick="window.location.href='#contacto'">
+                            ✈️ Tramitar Solicitud de Crédito
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección de Recursos Técnicos y Artículos -->
+        <section id="recursos">
+            <div class="contenedor-recursos-encabezado">
+                <span class="subtitulo-transferencia">Transferencia de Conocimiento</span>
+                <div class="fila-titulo-recursos">
+                    <h2>Recursos Técnicos y Artículos</h2>
+                    <p class="descripcion-recursos">Información técnica valiosa para respaldar tus decisiones en el campo y aumentar la productividad por hectárea.</p>
+                </div>
+            </div>
+
+            <!-- Barra de Búsqueda Simulada -->
+            <div class="contenedor-busqueda-recursos">
+                <input type="text" id="inputBuscarRecursos" placeholder="🔍 Buscar temas (ej. goteo, humedad, suelo...)">
+            </div>
+
+            <!-- Cuadrícula de 3 Artículos -->
+            <div class="cuadrícula-recursos">
+                
+                <!-- Artículo 1 -->
+                <div class="tarjeta-articulo">
+                    <span class="categoria-articulo color-riego">Riego Tecnificado</span>
+                    <h3>Criterios para seleccionar el sistema de riego óptimo según tu tipo de suelo</h3>
+                    <p>Analizamos la textura (arenoso, franco, arcilloso), la velocidad de infiltración y la topografía para determinar si tu terreno aprovecha mejor el goteo o la aspersión.</p>
+                    <div class="pie-articulo">
+                        <span>🕒 5 min de lectura</span>
+                        <a href="#contacto" class="enlace-leer-guia">Leer guía →</a>
+                    </div>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="tarjeta-articulo">
+                    <span class="categoria-articulo color-forrajes">Forrajes & Alfalfa</span>
+                    <h3>Ventajas del goteo subsuperficial en alfalfa y maíz forrajero en la Comarca Lagunera</h3>
+                    <p>Cómo reducir hasta un 35% el consumo de agua por tonelada de materia seca producida y permitir el corte del forraje sin retirar mangueras.</p>
+                    <div class="pie-articulo">
+                        <span>🕒 7 min de lectura</span>
+                        <a href="#contacto" class="enlace-leer-guia">Leer guía →</a>
+                    </div>
+                </div>
+
+                <!-- Artículo 3 -->
+                <div class="tarjeta-articulo">
+                    <span class="categoria-articulo color-digital">Monitoreo & Digitalización</span>
+                    <h3>Optimización de la lámina de riego mediante sensores de humedad de suelo</h3>
+                    <p>Aprende a interpretar las curvas de tensión matricial y capacidad de campo para programar riegos eficientes que eviten la asfixia radicular.</p>
+                    <div class="pie-articulo">
+                        <span>🕒 4 min de lectura</span>
+                        <a href="#contacto" class="enlace-leer-guia">Leer guía →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección de Contacto y Comunicación Directa -->
+        <section id="contacto">
+            <div class="contenedor-dos-columnas-contacto">
+                
+                <!-- Columna Izquierda: Información de la Empresa -->
+                <div class="columna-datos-contacto">
+                    <span class="subtitulo-comunicacion">Comunicación Directa</span>
+                    <h2>Ponte en contacto con DAEGRO</h2>
+                    <p class="desc-contacto-p">Estamos listos para cotizar tu proyecto, programar una visita a tu predio o resolver tus dudas agronómicas.</p>
+
+                    <!-- Bloques de Información Física -->
+                    <div class="lista-bloques-datos">
+                        <div class="bloque-dato-item">
+                            <span class="icono-dato-circulo">📍</span>
+                            <div>
+                                <h3>Dirección Fiscal y Oficinas</h3>
+                                <p>Avenida 5A #724, Colonia Eduardo Guerra, C.P. 27280<br><strong>Torreón, Coahuila, México.</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="bloque-dato-item">
+                            <span class="icono-dato-circulo">📞</span>
+                            <div>
+                                <h3>Teléfonos de Atención Directa</h3>
+                                <p><strong>871-399-0921</strong> (Atención Ventas y Proyectos)</p>
+                                <p><strong>871-474-1500</strong> (Servicios Técnicos y Zanjeo)</p>
+                                <p><strong>871-241-7935</strong> (Atención Agronómica)</p>
+                            </div>
+                        </div>
+
+                        <div class="bloque-dato-item">
+                            <span class="icono-dato-circulo">✉️</span>
+                            <div>
+                                <h3>Correos Electrónicos</h3>
+                                <p>contacto.daegro@gmail.com</p>
+                                <p>administracion.daegro@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acordeón Simple de Datos de Facturación -->
+                    <div class="acordeon-facturacion">
+                        <div class="header-acordeon">
+                            <span>🏦 Datos de Facturación y Depósito Santander</span>
+                            <span>▼</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Formulario de Solicitud/Consulta -->
+                <div class="columna-formulario-contacto">
+                    <div class="caja-formulario-web">
+                        <h3>Envíanos un mensaje o consulta</h3>
+                        <p class="nota-formulario">Completa el formulario para conectarte directamente via WhatsApp o correo electrónico con nuestro equipo técnico.</p>
+
+                        <form id="formContactoWhatsApp">
+                            <div class="fila-inputs-dobles">
+                                <div class="control-input">
+                                    <label for="cNombre">Nombre Completo *</label>
+                                    <input type="text" id="cNombre" required placeholder="Ej. Ing. Roberto Garza">
+                                </div>
+                                <div class="control-input">
+                                    <label for="cTelefono">Teléfono / WhatsApp *</label>
+                                    <input type="tel" id="cTelefono" required placeholder="Ej. 871 123 4567">
+                                </div>
+                            </div>
+
+                            <div class="fila-inputs-dobles">
+                                <div class="control-input">
+                                    <label for="cUbicacion">Ubicación / Municipio</label>
+                                    <input type="text" id="cUbicacion" placeholder="Ej. Torreón / San Pedro / Matamoros">
+                                </div>
+                                <div class="control-input">
+                                    <label for="cCultivo">Tipo de Cultivo / Proyecto</label>
+                                    <input type="text" id="cCultivo" placeholder="Ej. Nogal, Alfalfa, Maíz, Fraccionamiento">
+                                </div>
+                            </div>
+
+                            <div class="control-input">
+                                <label for="cInteres">Servicio o Producto de Interés *</label>
+                                <select id="cInteres" required>
+                                    <option value="Sistemas de Riego Tecnificado">Sistemas de Riego Tecnificado</option>
+                                    <option value="Servicio de Excavación y Zanjeo">Servicio de Excavación y Zanjeo</option>
+                                    <option value="Equipos de Bombeo y Filtración">Equipos de Bombeo y Filtración</option>
+                                    <option value="Automatización y Agricultura Digital">Automatización y Agricultura Digital</option>
+                                    <option value="Sanidad y Nutrición Agrícola">Sanidad y Nutrición Agrícola</option>
+                                </select>
+                            </div>
+
+                            <div class="control-input">
+                                <label for="cMensaje">Detalles o Mensaje</label>
+                                <textarea id="cMensaje" rows="4" placeholder="Describe brevemente tus hectáreas, requerimientos o dudas..."></textarea>
+                            </div>
+
+                            <button type="submit" class="boton-enviar-whatsapp">
+                                💬 Enviar por WhatsApp Directo
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BOTÓN FLOTANTE DE WHATSAPP (Viviría al fondo antes de cerrar el body) -->
+        <a href="https://wa.me/528713990921?text" class="btn-flotante-wa" target="_blank" aria-label="Contacto por WhatsApp">
+            💬
+        </a>
 
         <!-- Catálogo de Soluciones -->
         <section id="sistemas">
@@ -83,36 +794,64 @@
         </section>
     </main>
 
-    <!-- Ventana Modal de Contacto/Cotización -->
-    <div id="modalContacto" class="modal-oculto">
-        <div class="contenido-modal">
-            <span class="boton-cerrar">&times;</span>
-            <h2>Solicitud de Asesoría Técnica</h2>
-            <p>Introduce los datos del cultivo para calcular el sistema de riego óptimo.</p>
-            
-            <form id="formularioRiego">
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" required placeholder="Ej. Juan Pérez">
-
-                <label for="hectareas">Superficie (Hectáreas):</label>
-                <input type="number" id="hectareas" min="1" required placeholder="Ej. 5">
-
-                <label for="cultivo">Tipo de Cultivo:</label>
-                <select id="cultivo" required>
-                    <option value="">Selecciona uno...</option>
-                    <option value="frutales">Árboles Frutales</option>
-                    <option value="hortalizas">Hortalizas</option>
-                    <option value="granos">Granos / Cereales</option>
-                </select>
-
-                <button type="submit">Enviar Cotización</button>
-            </form>
-        </div>
-    </div>
-
-
+    <!-- Pie de Página Corporativo (Footer) -->
     <footer>
-        <p>&copy; 2026 Sistemas de Riego. Todos los derechos reservados.</p>
+        <div class="contenedor-columnas-footer">
+            
+            <!-- Columna 1: Identidad -->
+            <div class="columna-footer info-empresa-f">
+                <div class="logo-footer-f">
+                    <span class="icono-hex-f">🔮</span>
+                    <h3>DAEGRO</h3>
+                </div>
+                <p class="tagline-empresa">Integración Agrícola y Tecnificación. Soluciones integrales en riego, zanjeo, automatización, nutrición y financiamiento agrícola desde 2024.</p>
+                <p class="ciudad-f">Torreón, Coahuila, México.</p>
+            </div>
+
+            <!-- Columna 2: Servicios y Riego -->
+            <div class="columna-footer">
+                <h4>Servicios & Riego</h4>
+                <ul>
+                    <li><a href="#servicios">Topografía y Diseños</a></li>
+                    <li><a href="#riego">Goteo Superficial y Subsuperficial</a></li>
+                    <li><a href="#riego">Pivotes y Avance Frontal</a></li>
+                    <li><a href="#servicios">Zanjeo con Maquinaria Pesada</a></li>
+                    <li><a href="#bombeo">Sistemas de Bombeo Solar</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Insumos y Alianzas -->
+            <div class="columna-footer">
+                <h4>Insumos & Alianzas</h4>
+                <ul>
+                    <li><a href="#proteccion">Algas Pacific</a></li>
+                    <li><a href="#proteccion">Rainbow & Smartec</a></li>
+                    <li><a href="#proteccion">Spraytec & TerraFeed</a></li>
+                    <li><a href="#credito">Financiamiento Caja Solidaria</a></li>
+                    <li><a href="#recursos">Recursos Técnicos</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Atención Telefónica -->
+            <div class="columna-footer">
+                <h4>Atención Telefónica</h4>
+                <ul class="lista-contacto-footer">
+                    <li><a href="tel:8713990921">📞 871 399 0921</a></li>
+                    <li><a href="tel:8714741500">📞 871 474 1500</a></li>
+                    <li><a href="tel:8712417935">📞 871 241 7935</a></li>
+                    <li><a href="mailto:contacto.daegro@gmail.com">✉️ contacto.daegro@gmail.com</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Barra de Créditos Inferior Estricta -->
+        <div class="barra-derechos-footer">
+            <div class="contenido-derechos">
+                <span>&copy; 2024 - 2026 DAEGRO (Integración Agrícola y Tecnificación). Todos los derechos reservados.</span>
+                <span class="direccion-f-pie">Av. 5A #724, Col. Eduardo Guerra, Torreón, Coahuila, C.P. 27280</span>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>

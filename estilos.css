@@ -12,6 +12,45 @@ body {
     line-height: 1.6;
 }
 
+/* --- BARRA SUPERIOR INFORMATIVA --- */
+.topbar {
+    background-color: #1a0036; /* Un morado aún más oscuro para contraste */
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.topbar-izq, .topbar-der {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.topbar-der a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.topbar-der a:hover {
+    color: #c77dff;
+}
+
+.separador {
+    opacity: 0.4;
+}
+
+/* Ocultar la barra superior en pantallas muy chicas para cuidar el espacio móvil */
+@media (max-width: 600px) {
+    .topbar {
+        display: none;
+    }
+}
+
 /* Encabezado y Navegación Global */
 header {
     background-color: #240046; /* Violeta muy oscuro */
@@ -45,42 +84,1673 @@ nav ul li a:hover {
     color: #c77dff; /* Lila brillante al pasar el cursor sobre los enlaces */
 }
 
-/* Sección Principal (Hero) */
+/* --- SECCIÓN PRINCIPAL / HERO --- */
 #inicio {
-    /* Gradiente sutil que va desde el violeta oscuro de DAEGRO */
-    background: linear-gradient(rgba(36, 0, 70, 0.85), rgba(90, 24, 154, 0.85)), 
+    background: linear-gradient(rgba(36, 0, 70, 0.88), rgba(90, 24, 154, 0.88)), 
                 url('https://unsplash.com') no-repeat center center/cover;
     color: white;
-    text-align: center;
-    padding: 6rem 2rem;
+    text-align: left; /* Alineado a la izquierda como la referencia original */
+    padding: 6rem 4rem;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Etiqueta superior ovalada */
+.etiqueta-ubicacion {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #inicio h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Texto resaltado en lila brillante */
+.texto-resaltado {
+    color: #c77dff; 
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.descripcion-hero {
+    font-size: 1.2rem;
+    max-width: 750px;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Contenedor de las 3 pastillas de características */
+.caracteristicas-hero {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.item-caracteristica {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+}
+
+/* Contenedor de botones de acción */
+.botones-hero {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Botón Verde Llamativo */
+.boton-verde {
+    background-color: #00b4d8; /* Ajustado a un color verde azulado limpio */
+    background: #00a86b;       /* Verde esmeralda idéntico a la acción */
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.boton-verde:hover {
+    background-color: #008f5a;
+    transform: translateY(-2px);
+}
+
+/* Botón Esquema de Crédito */
+.boton-esquema {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-esquema:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Ajuste responsivo para móvil dentro del bloque de celular */
+@media (max-width: 768px) {
+    #inicio {
+        padding: 4rem 1.5rem;
+        text-align: center;
+    }
+    #inicio h1 { font-size: 2.2rem; }
+    .caracteristicas-hero { justify-content: center; }
+    .botones-hero { flex-direction: column; width: 100%; }
+    .boton-verde, .boton-esquema { width: 100%; text-align: center; }
+}
+
+/* ==========================================================================
+   SECCIÓN SERVICIOS (DIFERENCIA COMPETITIVA)
+   ========================================================================== */
+#servicios {
+    padding: 5rem 2rem;
+    background-color: #f8f9fa; /* Fondo gris extra claro como la referencia */
+    text-align: center;
+}
+
+.contenedor-servicios-encabezado {
+    max-width: 800px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.subtitulo-competitiva {
+    display: inline-block;
+    color: #7b2cbf; /* El morado DAEGRO */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(123, 44, 191, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
     margin-bottom: 1rem;
 }
 
-#inicio p {
-    font-size: 1.2rem;
+#servicios h2 {
+    color: #240046; /* Violeta muy oscuro */
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+.descripcion-servicios {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Distribución de las 4 tarjetas usando CSS Grid */
+.cuadrícula-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjetas Individuales Estilo Corporativo */
+.tarjeta-servicio {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: left; /* Alineación del texto a la izquierda */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Sombra muy sutil */
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(123, 44, 191, 0.08); /* Destello morado sutil al pasar el cursor */
+}
+
+.icono-servicio {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    background-color: rgba(123, 44, 191, 0.06);
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+}
+
+.tarjeta-servicio h3 {
+    color: #240046;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.tarjeta-servicio p {
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Adaptación estricta para celulares */
+@media (max-width: 768px) {
+    #servicios { padding: 4rem 1.5rem; }
+    #servicios h2 { font-size: 1.8rem; }
+    .tarjeta-servicio { text-align: center; padding: 2rem 1.5rem; }
+}
+
+/* ==========================================================================
+   SUBSECCIÓN: PROCESOS TÉCNICOS DAEGRO
+   ========================================================================== */
+.contenedor-procesos-tecnicos {
+    background-color: #240046; /* El fondo morado corporativo oscuro que se ve en la captura */
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    border-radius: 16px; /* Bordes suavemente redondeados para el bloque entero */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Tarjetas de Procesos Individuales */
+.tarjeta-proceso {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo Exclusivo para la Tarjeta Destacada (Zanjeo) */
+.tarjeta-proceso.destacada {
+    border: 2px solid #ffb703; /* Borde dorado técnico */
+}
+
+/* Etiqueta Flotante Dorada */
+.badge-destacado {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: #ffb703;
+    color: #240046;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.icono-proceso {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.tarjeta-proceso h3 {
+    color: #240046;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.desc-proceso-principal {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* Viñetas Personalizadas en Morado (Ciberseguras sin iconos externos) */
+.lista-proceso-viñetas {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.lista-proceso-viñetas li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.85rem;
+    color: #444444;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+}
+
+.lista-proceso-viñetas li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #7b2cbf; /* Viñetas con el color morado de DAEGRO */
+    font-size: 1.3rem;
+    top: -2px;
+}
+
+/* Enlace de Acción "Solicitar servicio de zanjeo" */
+.enlace-proceso-accion {
+    color: #7b2cbf;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: auto; /* Empuja el enlace al fondo de la tarjeta */
+    transition: color 0.2s;
+}
+
+.enlace-proceso-accion:hover {
+    color: #9d4edd;
+    text-decoration: underline;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .contenedor-procesos-tecnicos {
+        padding: 2rem 1rem;
+        border-radius: 8px;
+    }
+    .tarjeta-proceso {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN: SISTEMAS DE RIEGO TECNIFICADO
+   ========================================================================== */
+#riego {
+    padding: 5rem 2rem;
+    background-color: #ffffff; /* Fondo blanco puro para contrastar con servicios */
+    text-align: center;
+}
+
+.contenedor-riego-encabezado {
+    max-width: 800px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.subtitulo-eficiencia {
+    display: inline-block;
+    color: #9d4edd; /* Tono lila/morado complementario */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(157, 78, 221, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+#riego h2 {
+    color: #240046;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.descripcion-riego {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Rejilla elástica de 3 columnas */
+.cuadrícula-riego {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjetas Individuales Técnicas */
+.tarjeta-riego-tecnico {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: left;
+    border: 1px solid #e9ecef; /* Borde gris muy tenue como la captura */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-riego-tecnico:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(36, 0, 70, 0.05);
+}
+
+/* Fila Superior del Icono y el Badge */
+.header-tarjeta-riego {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.icono-riego-item {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    background-color: #f1f3f5;
+}
+
+/* Variaciones sutiles de color de fondo para los iconos */
+.azul-claro { background-color: rgba(33, 150, 243, 0.08); }
+.morado-claro { background-color: rgba(123, 44, 191, 0.08); }
+.azul-mar { background-color: rgba(0, 180, 216, 0.08); }
+.verde-claro { background-color: rgba(0, 168, 107, 0.08); }
+.azul-oscuro { background-color: rgba(36, 0, 70, 0.08); }
+.naranja-claro { background-color: rgba(255, 183, 3, 0.08); }
+
+/* Etiqueta Flotante Gris Claro (Filtro Comercial) */
+.badge-tecnico {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.tarjeta-riego-tecnico h3 {
+    color: #240046;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.tarjeta-riego-tecnico p {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Enlaces de ventajas */
+.enlace-riego-tecnico {
+    color: #7b2cbf;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: auto; /* Empuja el enlace abajo siempre */
+    transition: color 0.2s;
+}
+
+.enlace-riego-tecnico:hover {
+    color: #c77dff;
+    text-decoration: underline;
+}
+
+/* Responsivo para móviles compactos */
+@media (max-width: 768px) {
+    #riego { padding: 4rem 1.5rem; }
+    #riego h2 { font-size: 1.8rem; }
+    .tarjeta-riego-tecnico { padding: 2rem 1.5rem; }
+}
+
+/* ==========================================================================
+   SECCIÓN: SISTEMAS DE BOMBEO Y FILTRACIÓN
+   ========================================================================== */
+#bombeo {
+    padding: 5rem 2rem;
+    background-color: #f8f9fa; /* Fondo gris extra claro para generar contraste con el bloque blanco superior */
+    text-align: center;
+}
+
+.contenedor-bombeo-encabezado {
+    max-width: 900px;
+    margin: 0 auto 3.5rem auto;
+    text-align: left; /* Alineado a la izquierda según la captura real */
+}
+
+.subtitulo-corazon {
+    display: inline-block;
+    color: #9d4edd;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+}
+
+#bombeo h2 {
+    color: #240046;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.descripcion-bombeo {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Rejilla de 3 columnas simétricas */
+.cuadrícula-bombeo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilización de las Tarjetas de Bombeo */
+.tarjeta-bombeo-tecnico {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+}
+
+.icono-bombeo-cabecera {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    background-color: rgba(157, 78, 221, 0.08);
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.tarjeta-bombeo-tecnico h3 {
+    color: #240046;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Lógica de Ciberseguridad para Viñetas de Palomitas en CSS Nativo */
+.lista-bombeo-check {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-bombeo-check li {
+    position: relative;
+    padding-left: 25px;
+    font-size: 0.95rem;
+    color: #444444;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Dibujamos la palomita "✓" morada usando el pseudo-elemento ::before */
+.lista-bombeo-check li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #c77dff; /* Tono lila/morado vibrante idéntico a la captura */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+    #bombeo { padding: 4rem 1.5rem; }
+    .contenedor-bombeo-encabezado { text-align: center; }
+    #bombeo h2 { font-size: 1.8rem; }
+    .tarjeta-bombeo-tecnico { padding: 2rem 1.5rem; }
+}
+
+/* ==========================================================================
+   SECCIÓN: AUTOMATIZACIÓN Y AGRICULTURA DIGITAL
+   ========================================================================== */
+#automatizacion {
+    padding: 5rem 2rem;
+    background-color: #ffffff; /* Fondo blanco para alternar la visualización */
+}
+
+.contenedor-dos-columnas {
+    display: flex;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que colapse en móviles */
+}
+
+.columna-info-automatizacion, .columna-panel-simulador {
+    flex: 1;
+    min-width: 320px;
+}
+
+.subtitulo-digital {
+    display: inline-block;
+    color: #7b2cbf;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(123, 44, 191, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.columna-info-automatizacion h2 {
+    color: #240046;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.desc-automatizacion {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+/* Filas de características con iconos circulares */
+.lista-caracteristicas-digitales {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item-digital {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.icono-digital-circulo {
+    font-size: 1.3rem;
+    background-color: #7b2cbf; /* Círculo morado base */
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.item-digital h3 {
+    color: #240046;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.item-digital p {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* --- INTERFAZ GRÁFICA DEL MONITOR DIGITAL (CSS PURO) --- */
+.interfaz-monitor {
+    background: linear-gradient(135deg, #3c096c, #240046); /* El degradado morado del tablero */
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(36, 0, 70, 0.2);
+}
+
+.monitor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.monitor-tag {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.monitor-header h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Pequeño punto verde de estado en línea */
+.punto-en-linea {
+    width: 12px;
+    height: 12px;
+    background-color: #00b4d8; /* Verde/azul brillante de estado activo */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00b4d8;
+}
+
+/* Cuadros de Datos de Humedad y Presión */
+.monitor-tarjetas-datos {
+    display: flex;
+    gap: 15px;
     margin-bottom: 2rem;
 }
 
-/* Botón Principal (Formulario) */
-button {
-    background-color: #7b2cbf; /* El morado exacto de tu logotipo */
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
+.subtarjeta-dato {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.2rem;
+    border-radius: 10px;
+    flex: 1;
 }
 
-button:hover {
-    background-color: #9d4edd; /* Morado un poco más encendido al pasar el cursor */
-    transform: scale(1.05);
+.subtarjeta-dato p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.valor-dato {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0.3rem 0;
+}
+
+.rango-optimo {
+    color: #00a86b !important; /* Verde de aprobación */
+    font-weight: 600;
+    opacity: 1 !important;
+}
+
+.estado-bomba {
+    font-size: 0.75rem !important;
+    opacity: 0.6;
+}
+
+/* Barra de progreso interactiva */
+.monitor-progreso-seccion {
+    margin-bottom: 2rem;
+}
+
+.progreso-texto {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.barra-fondo-progreso {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.barra-llena-progreso {
+    width: 75%; /* Ajustado al 75% indicado en el panel */
+    height: 100%;
+    background: linear-gradient(90deg, #c77dff, #e0aaff); /* Degradado de progreso */
+    border-radius: 4px;
+}
+
+.monitor-nota-pie {
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.7;
+    line-height: 1.4;
+    border-left: 2px solid #c77dff;
+    padding-left: 10px;
+}
+
+/* Adaptación responsiva estricta */
+@media (max-width: 900px) {
+    .contenedor-dos-columnas { flex-direction: column; gap: 35px; }
+    .columna-info-automatizacion h2 { font-size: 1.8rem; }
+    .interfaz-monitor { padding: 1.5rem; }
+    .monitor-tarjetas-datos { flex-direction: column; }
+}
+
+/* ==========================================================================
+   SECCIÓN: PROTECCIÓN Y NUTRICIÓN DE CULTIVOS
+   ========================================================================== */
+#proteccion {
+    padding: 5rem 2rem;
+    background-color: #f8f9fa; /* Fondo gris claro alternado */
+    text-align: center;
+}
+
+.contenedor-proteccion-encabezado {
+    max-width: 850px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.subtitulo-sanidad {
+    display: inline-block;
+    color: #7b2cbf;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(123, 44, 191, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+#proteccion h2 {
+    color: #240046;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.descripcion-proteccion {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Contenedor Grande Blanco para las Marcas Socias */
+.bloque-marcas-socias {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+}
+
+.titulo-marcas {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+}
+
+.cuadrícula-marcas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Tarjetas internas de logotipos */
+.tarjeta-marca {
+    background-color: #f8f9fa;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    transition: transform 0.2s;
+}
+
+.tarjeta-marca:hover {
+    transform: translateY(-2px);
+    background-color: #ffffff;
+    border-color: #7b2cbf;
+}
+
+.icono-marca-v {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-marca h4 {
+    color: #240046;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.tarjeta-marca p {
+    color: #888888;
+    font-size: 0.75rem;
+}
+
+/* Cuadrícula de las 4 Tarjetas de Insumos Inferiores */
+.cuadrícula-insumos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-insumo {
+    background-color: #ffffff;
+    padding: 2rem 1.8rem;
+    border-radius: 12px;
+    text-align: left;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-insumo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(36, 0, 70, 0.04);
+}
+
+.tarjeta-insumo h3 {
+    color: #240046;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.tarjeta-insumo p {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    #proteccion { padding: 4rem 1.5rem; }
+    #proteccion h2 { font-size: 1.8rem; }
+    .bloque-marcas-socias { padding: 1.5rem 1rem; }
+    .tarjeta-insumo { padding: 1.5rem; }
+}
+
+/* ==========================================================================
+   SECCIÓN: ASESORÍA AGRONÓMICA
+   ========================================================================== */
+#asesoria {
+    padding: 5rem 2rem;
+    background-color: #ffffff; /* Fondo blanco para hacer resaltar la tarjeta morada */
+}
+
+/* El bloque contenedor grande morado idéntico a la captura */
+.bloque-tarjeta-asesoria {
+    background: linear-gradient(135deg, #7b2cbf, #5a189a); /* Tonos morados DAEGRO */
+    color: #ffffff;
+    padding: 4rem;
+    border-radius: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left; /* Alineado enteramente a la izquierda */
+    box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
+}
+
+.badge-acompañamiento {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.bloque-tarjeta-asesoria h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.desc-asesoria {
+    font-size: 1.1rem;
+    max-width: 800px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+}
+
+/* Rejilla de 2 columnas de checks técnicos */
+.cuadrícula-checks-asesoria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px 30px;
+    max-width: 800px;
+    margin-bottom: 3rem;
+}
+
+.check-asesoria-item {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Cambiar dinámicamente el color de la palabra o símbolo de palomita */
+.check-asesoria-item::first-letter {
+    color: #e0aaff; /* Lila brillante para las palomitas */
+    font-weight: bold;
+}
+
+/* Botón Blanco de Acción Principal */
+.boton-asesor-parcela {
+    background-color: #ffffff !important;
+    color: #240046 !important; /* Texto en el morado más oscuro */
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.boton-asesor-parcela:hover {
+    background-color: #f1f3f5 !important;
+    transform: translateY(-2px);
+}
+
+/* Adaptación estricta para celulares */
+@media (max-width: 768px) {
+    #asesoria { padding: 4rem 1.5rem; }
+    .bloque-tarjeta-asesoria { padding: 2.5rem 1.5rem; }
+    .bloque-tarjeta-asesoria h2 { font-size: 1.8rem; }
+    .desc-asesoria { font-size: 1rem; }
+    .cuadrícula-checks-asesoria { grid-template-columns: 1fr; gap: 15px; }
+    .boton-asesor-parcela { width: 100%; text-align: center; }
+}
+
+/* ==========================================================================
+   SECCIÓN: CRÉDITO Y SIMULADOR FINANCIERO
+   ========================================================================== */
+#credito {
+    padding: 5rem 2rem;
+    background-color: #ffffff;
+}
+
+.contenedor-credito-encabezado {
+    max-width: 800px;
+    margin: 0 auto 3.5rem auto;
+    text-align: center;
+}
+
+.subtitulo-alianza {
+    display: inline-block;
+    color: #7b2cbf;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(123, 44, 191, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+#credito h2 {
+    color: #240046;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.descripcion-credito {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.contenedor-dos-columnas-credito {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.columna-tarjetas-beneficios, .columna-simulador-calculadora {
+    flex: 1;
+    min-width: 320px;
+}
+
+/* Tarjetas de Beneficios (Izquierda) */
+.lista-caracteristicas-digitales { gap: 25px; }
+
+.tarjeta-beneficio-credito {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 1.5rem 1.8rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+}
+
+.icono-credito-b {
+    font-size: 1.3rem;
+    background-color: rgba(123, 44, 191, 0.08);
+    color: #7b2cbf;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.tarjeta-beneficio-credito h3 {
+    color: #240046;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.tarjeta-beneficio-credito p {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* --- DISEÑO DEL CONTENEDOR DEL SIMULADOR (Derecha) --- */
+.caja-simulador {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(36, 0, 70, 0.04);
+}
+
+.header-simulador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header-simulador h3 {
+    color: #240046;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.icono-calculadora-p {
+    font-size: 1.2rem;
+    color: #7b2cbf;
+}
+
+/* Controles de Sliders */
+.control-slider {
+    margin-bottom: 2rem;
+}
+
+.labels-slider {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 0.6rem;
+}
+
+.valor-resaltado-simulador {
+    color: #7b2cbf;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Estilización de la Barra de Desplazamiento Nativa */
+.control-slider input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* La pelotita del Slider */
+.control-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 4px solid #7b2cbf; /* Borde morado DAEGRO como la captura */
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.control-slider input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.rango-limites {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #888888;
+    margin-top: 0.4rem;
+}
+
+/* Bloque de resultados de salida */
+.bloque-resultados-simulador {
+    display: flex;
+    gap: 15px;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 1.5rem;
+}
+
+.resultado-item {
+    flex: 1;
+    text-align: center;
+}
+
+.etiqueta-resultado {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-bottom: 0.3rem;
+}
+
+.monto-resultado {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #240046;
+}
+
+.monto-resultado.color-morado {
+    color: #7b2cbf;
+}
+
+.nota-legal-simulador {
+    font-size: 0.75rem;
+    color: #888888;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.boton-tramitar-credito {
+    width: 100%;
+    background-color: #7b2cbf;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-tramitar-credito:hover {
+    background-color: #5a189a;
+}
+
+/* Ajustes móviles */
+@media (max-width: 768px) {
+    #credito { padding: 4rem 1.5rem; }
+    .contenedor-dos-columnas-credito { flex-direction: column; }
+    .caja-simulador { padding: 1.5rem; }
+    .bloque-resultados-simulador { flex-direction: column; gap: 15px; }
+}
+
+/* ==========================================================================
+   SECCIÓN: RECURSOS TÉCNICOS Y ARTÍCULOS
+   ========================================================================== */
+#recursos {
+    padding: 5rem 2rem;
+    background-color: #f8f9fa; /* Fondo gris claro alternado para separar de crédito */
+    text-align: left;
+}
+
+.contenedor-recursos-encabezado {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.subtitulo-transferencia {
+    display: inline-block;
+    color: #7b2cbf;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(123, 44, 191, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.fila-titulo-recursos {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+#recursos h2 {
+    color: #240046;
+    font-size: 2.2rem;
+    font-weight: 700;
+    flex: 1;
+    min-width: 300px;
+}
+
+.descripcion-recursos {
+    color: #6c757d;
+    font-size: 1.05rem;
+    max-width: 500px;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Estilos de la Barra de Búsqueda */
+.contenedor-busqueda-recursos {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+}
+
+#inputBuscarRecursos {
+    width: 100%;
+    max-width: 400px; /* Ancho cómodo como en la captura original */
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #ffffff;
+}
+
+#inputBuscarRecursos:focus {
+    border-color: #7b2cbf;
+    box-shadow: 0 0 5px rgba(123, 44, 191, 0.2);
+}
+
+/* Cuadrícula de Artículos de 3 Columnas */
+.cuadrícula-recursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-articulo {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-articulo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(36, 0, 70, 0.04);
+}
+
+/* Etiquetas de Categoría Pequeñas Superiores */
+.categoria-articulo {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: fit-content;
+}
+
+.color-riego { color: #7b2cbf; }
+.color-forrajes { color: #5a189a; }
+.color-digital { color: #9d4edd; }
+
+.tarjeta-articulo h3 {
+    color: #240046;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.tarjeta-articulo p {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Fila de pie dentro de la tarjeta */
+.pie-articulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Empuja el pie siempre abajo */
+    font-size: 0.8rem;
+    color: #6c757d;
+    border-top: 1px solid #f1f3f5;
+    padding-top: 1rem;
+}
+
+.enlace-leer-guia {
+    color: #7b2cbf;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.enlace-leer-guia:hover {
+    color: #c77dff;
+    text-decoration: underline;
+}
+
+/* Ajustes adaptativos móviles */
+@media (max-width: 768px) {
+    #recursos { padding: 4rem 1.5rem; text-align: center; }
+    .fila-titulo-recursos { text-align: center; gap: 15px; }
+    .descripcion-recursos { margin: 0 auto; }
+    #inputBuscarRecursos { max-width: 100%; text-align: center; }
+    .tarjeta-articulo { text-align: left; padding: 2rem 1.5rem; }
+}
+
+/* ==========================================================================
+   SECCIÓN: CONTACTO Y COMUNICACIÓN DIRECTA
+   ========================================================================== */
+#contacto {
+    padding: 5rem 2rem;
+    background-color: #ffffff;
+}
+
+.contenedor-dos-columnas-contacto {
+    display: flex;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.columna-datos-contacto, .columna-formulario-contacto {
+    flex: 1;
+    min-width: 320px;
+}
+
+.subtitulo-comunicacion {
+    display: inline-block;
+    color: #7b2cbf;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(123, 44, 191, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.columna-datos-contacto h2 {
+    color: #240046;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.desc-contacto-p {
+    color: #666666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+}
+
+/* Lista de Bloques de Datos Izquierdos */
+.lista-bloques-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 2rem;
+}
+
+.bloque-dato-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.icono-dato-circulo {
+    font-size: 1.2rem;
+    background-color: #f1f3f5;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.bloque-dato-item h3 {
+    color: #240046;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.bloque-dato-item p {
+    color: #555555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Barra de Acordeón de Facturación */
+.acordeon-facturacion {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 400px;
+    cursor: pointer;
+}
+
+.header-acordeon {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #5a189a;
+    font-weight: bold;
+}
+
+/* --- CAJA DEL FORMULARIO WEB (Derecha) --- */
+.caja-formulario-web {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(36, 0, 70, 0.03);
+    text-align: left;
+}
+
+.caja-formulario-web h3 {
+    color: #240046;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.nota-formulario {
+    color: #888888;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+#formContactoWhatsApp {
+    display: flex;
+    flex-direction: column;
+}
+
+.fila-inputs-dobles {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.fila-inputs-dobles .control-input {
+    flex: 1;
+    min-width: 180px;
+}
+
+.control-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.control-input label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 0.4rem;
+}
+
+.control-input input, .control-input select, .control-input textarea {
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    background-color: #ffffff;
+    transition: border-color 0.2s;
+}
+
+.control-input input:focus, .control-input select:focus, .control-input textarea:focus {
+    border-color: #7b2cbf;
+}
+
+/* Botón Verde de Envío por WhatsApp */
+.boton-enviar-whatsapp {
+    background-color: #00a86b; /* Verde esmeralda llamativo de la captura */
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+}
+
+.boton-enviar-whatsapp:hover {
+    background-color: #008f5a;
+}
+
+/* --- BOTÓN FLOTANTE CIRCULAR DE WHATSAPP --- */
+.btn-flotante-wa {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366; /* Verde oficial WhatsApp */
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    z-index: 4000;
+    transition: transform 0.2s;
+}
+
+.btn-flotante-wa:hover {
+    transform: scale(1.1);
+}
+
+/* Ajustes adaptativos */
+@media (max-width: 768px) {
+    #contacto { padding: 4rem 1.5rem; text-align: center; }
+    .bloque-dato-item { text-align: center; flex-direction: column; align-items: center; }
+    .caja-formulario-web { padding: 1.5rem; }
+    .fila-inputs-dobles { flex-direction: column; gap: 0; }
+    .btn-flotante-wa { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 1.5rem; }
 }
 
 /* Sección de Soluciones */
@@ -114,43 +1784,124 @@ button:hover {
     border-top: 5px solid #7b2cbf; /* Línea superior con el morado DAEGRO */
 }
 
-/* Pie de página */
+/* ==========================================================================
+   PIE DE PÁGINA CORPORATIVO (FOOTER)
+   ========================================================================== */
 footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 4rem;
+    background-color: #1a0036; /* Morado ultra oscuro idéntico a la captura */
+    color: #ffffff;
+    padding: 4rem 2rem 0 2rem; /* Eliminamos padding inferior para pegar la barra de derechos */
+    font-size: 0.9rem;
+    text-align: left;
 }
 
-/* Estilos para el Formulario Flotante (Modal) */
-.modal-oculto {
-    display: none; /* Por defecto no se muestra */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
-    backdrop-filter: blur(4px); /* Efecto desenfocado de fondo */
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Clase activa que usaremos con JavaScript */
-.modal-visible {
+.contenedor-columnas-footer {
     display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Saltos de columna automáticos en pantallas compactas */
+    padding-bottom: 3rem;
 }
 
-.contenido-modal {
-    background-color: #ffffff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 450px;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+.columna-footer {
+    flex: 1;
+    min-width: 220px;
+}
+
+/* Columna de Identidad */
+.info-empresa-f .logo-footer-f {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+}
+
+.info-empresa-f h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.icono-hex-f {
+    font-size: 1.4rem;
+}
+
+.tagline-empresa {
+    color: #b39ddb; /* Lila suave para mejor legibilidad */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.ciudad-f {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Títulos de las Columnas del Centro */
+.columna-footer h4 {
+    color: #c77dff; /* Lila brillante corporativo */
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: none;
+}
+
+/* Listas de Enlaces Internos */
+.columna-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.columna-footer ul li {
+    margin-bottom: 0.8rem;
+}
+
+.columna-footer ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+    opacity: 0.85;
+}
+
+.columna-footer ul li a:hover {
+    color: #c77dff;
+    opacity: 1;
+}
+
+/* Barra de Créditos y Ubicación de Fondo */
+.barra-derechos-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+.contenido-derechos {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.75rem;
+    color: #b39ddb;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.direccion-f-pie {
+    opacity: 0.8;
+}
+
+/* Ajustes adaptativos para dispositivos móviles en el bloque final */
+@media (max-width: 768px) {
+    footer { padding: 3rem 1.5rem 0 1.5rem; text-align: center; }
+    .contenedor-columnas-footer { flex-direction: column; gap: 30px; text-align: center; }
+    .info-empresa-f .logo-footer-f { justify-content: center; }
+    .contenido-derechos { flex-direction: column; text-align: center; gap: 10px; }
 }
 
 .boton-cerrar {
@@ -172,13 +1923,6 @@ footer {
     display: flex;
     flex-direction: column;
     margin-top: 1.5rem;
-}
-
-/* Diseño del Formulario Interno (Modal) */
-#formularioRiego label {
-    margin-bottom: 0.4rem;
-    font-weight: 600;
-    color: #240046; /* Textos del formulario en violeta */
 }
 
 #formularioRiego input, #formularioRiego select {
