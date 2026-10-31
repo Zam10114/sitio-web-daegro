@@ -25,7 +25,7 @@
     <!-- Encabezado y Navegación -->
     <header>
         <div class="logo-contenedor">
-            <img src="imagenes/logo.svg" alt="DAEGRO - Integración Agrícola" class="logo-sitio" height="50">
+            <img src="imagenes/logo.svg" alt="DAEGRO - Integración Agrícola" class="logo-sitio" height="50" width="160">
         </div>
 
         <!-- CONTENEDOR AGRUPADOR -->
@@ -573,7 +573,8 @@
                         <!-- Bloque de Resultados de Salida -->
                         <div class="bloque-resultados-simulador">
                             <div class="resultado-item">
-                                <p class="etiqueta-resultado">Pago Estimado Anual Aprox.*</p>
+                                <p class="etiqueta-resultado">Pago Anual Estimado(cada año)*</p>
+                                <p id="resumenCredito" class="resumen-credito"></p>
                                 <span id="calcPagoAnual" class="monto-resultado">$- MXN</span>
                             </div>
                             <div class="resultado-item">
@@ -603,7 +604,10 @@
 
             <!-- Barra de Búsqueda Simulada -->
             <div class="contenedor-busqueda-recursos">
-                <input type="text" id="inputBuscarRecursos" placeholder="🔍 Buscar temas (ej. goteo, humedad, suelo...)">
+                <input type="search" id="inputBuscarRecursos" autocomplete="off"
+                    aria-label="Buscar en los recursos técnicos"
+                    placeholder="Buscar temas (ej. goteo, humedad, suelo...)">
+                <p id="estadoBusqueda" role="status"></p>
             </div>
 
             <!-- Cuadrícula de 3 Artículos -->
@@ -686,12 +690,10 @@
                     </div>
 
                     <!-- Acordeón Simple de Datos de Facturación -->
-                    <div class="acordeon-facturacion">
-                        <div class="header-acordeon">
-                            <span>🏦 Datos de Facturación y Depósito Santander</span>
-                            <span>▼</span>
-                        </div>
-                    </div>
+                    <details class="acordeon-facturacion">
+                        <summary>🏦 Datos de facturación y depósito</summary>
+                        <p>Escríbenos por WhatsApp o correo y te enviamos nuestros datos de facturación y depósito de forma directa.</p>
+                    </details>
                 </div>
 
                 <!-- Columna Derecha: Formulario de Solicitud/Consulta -->

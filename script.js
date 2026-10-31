@@ -37,9 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtMonto = document.getElementById('txtMonto');
     const txtPlazo = document.getElementById('txtPlazo');
     const calcPagoAnual = document.getElementById('calcPagoAnual');
+    const resumenCredito = document.getElementById('resumenCredito');
 
-    // Tasa anual de referencia (decimal). OJO: 0.18 es solo de práctica, ver nota abajo.
-    const TASA_ANUAL_REFERENCIA = 0.18;
+    // Tasa anual de referencia (decimal).
+    const TASA_ANUAL_REFERENCIA = 0.14;
 
     function calcularPagoAnual(monto, anios, tasa) {
         if (tasa === 0) return monto / anios; // evita dividir entre cero
@@ -60,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Inyectar el resultado formateado en la tarjeta de salida
         calcPagoAnual.textContent = `$${pagoAnualTotal.toLocaleString('es-MX')} MXN`;
+
+        const totalAPagar = pagoAnualTotal * plazo;
+        const intereses = totalAPagar - monto;
+        resumenCredito.textContent =
+            `${plazo} ${plazo === 1 ? 'pago anual' : 'pagos anuales'} · ` +
+            `Total a pagar: $${totalAPagar.toLocaleString('es-MX')} MXN ` +
+            `(intereses: $${intereses.toLocaleString('es-MX')} MXN)`;
     }
 
     // Escuchar el movimiento continuo de los controles deslizantes
@@ -68,6 +76,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializar el cálculo al cargar la página por primera vez
     calcularCredito();
+
+    // ==========================================
+    // --- BUSCADOR DE RECURSOS TÉCNICOS ---
+    // ==========================================
+    const inputBusqueda = document.getElementById('inputBuscarRecursos');
+    const estadoBusqueda = document.getElementById('estadoBusqueda');
+    const tarjetasArticulo = document.querySelectorAll('.tarjeta-articulo');
+
+    // Minúsculas y sin acentos, para que "riégo" y "RIEGO" coincidan
+    function normalizar(texto) {
+        return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    if (inputBusqueda) {
+        inputBusqueda.addEventListener('input', () => {
+            const consulta = normalizar(inputBusqueda.value.trim());
+            let visibles = 0;
+
+            tarjetasArticulo.forEach(tarjeta => {
+                // Solo buscamos en categoría, título y descripción (no en "Leer guía")
+                const texto = [...tarjeta.querySelectorAll('.categoria-articulo, h3, p')]
+                    .map(el => el.textContent)
+                    .join(' ');
+                const coincide = normalizar(texto).includes(consulta);
+                tarjeta.hidden = !coincide;
+                if (coincide) visibles++;
+            });
+
+            if (consulta === '') {
+                estadoBusqueda.textContent = '';
+            } else if (visibles === 0) {
+                estadoBusqueda.textContent = 'No encontramos artículos con ese tema.';
+            } else {
+                estadoBusqueda.textContent = `${visibles} ${visibles === 1 ? 'artículo encontrado' : 'artículos encontrados'}.`;
+            }
+        });
+    }
 
     // ==========================================
     // --- INTEGRACIÓN SEGURO CON WHATSAPP ---
