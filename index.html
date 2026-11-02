@@ -759,6 +759,39 @@
             💬
         </a>
 
+        <!-- ==========================================================
+        ASISTENTE VIRTUAL (chat)
+        Pegar justo después del botón flotante de WhatsApp,
+        antes de <script src="script.js">
+        ========================================================== -->
+        <button type="button" id="btnChat" class="btn-flotante-chat"
+                aria-label="Asistente virtual" aria-expanded="false" aria-controls="panelChat">
+            <span aria-hidden="true">🤖</span>
+        </button>
+
+        <div id="panelChat" class="panel-chat" role="dialog" aria-labelledby="tituloChat" hidden>
+            <!-- Se usa <div> y no <header> porque el CSS del sitio da estilo a TODOS los <header> -->
+            <div class="chat-encabezado">
+                <h2 id="tituloChat" class="chat-titulo">Asistente virtual DAEGRO</h2>
+                <button type="button" id="btnCerrarChat" class="chat-cerrar" aria-label="Cerrar asistente virtual">
+                    <span aria-hidden="true">✕</span>
+                </button>
+            </div>
+
+            <div id="chatMensajes" class="chat-mensajes" role="log" aria-label="Conversación con el asistente"></div>
+
+            <form id="formChat" class="chat-formulario" autocomplete="off">
+                <input type="text" id="chatPregunta" class="chat-entrada" maxlength="300" required
+                    aria-label="Escribe tu pregunta" placeholder="Escribe tu pregunta...">
+                <button type="submit" id="btnEnviarChat" class="chat-enviar">Enviar</button>
+            </form>
+
+            <p class="chat-aviso">
+                Asistente automático: la información es orientativa.
+                Para cotizaciones o créditos, <a href="#contacto">contáctanos</a>.
+            </p>
+        </div>
+
         <!-- Catálogo de Soluciones -->
         <section id="sistemas">
             <h2>Soluciones de Riego</h2>
@@ -842,6 +875,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="chat.js"></script>
 
 </body>
 </html>

@@ -2147,3 +2147,187 @@ header {
     #inicio h1 { font-size: 1.8rem; }
     #inicio .botones-hero a, .boton-secundario { display: block; width: 100%; margin: 10px 0 !important; text-align: center; }
 }
+
+/* ==========================================================================
+   ASISTENTE VIRTUAL (CHAT)
+   ========================================================================== */
+
+/* Botón flotante: encima del de WhatsApp (25px de margen + 55px de alto + 10px de separación) */
+.btn-flotante-chat {
+    position: fixed;
+    right: 25px;
+    bottom: 90px;
+    width: 55px;
+    height: 55px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: #5a189a;
+    color: #ffffff;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 4000;
+    transition: transform 0.2s;
+}
+
+.btn-flotante-chat:hover {
+    transform: scale(1.1);
+}
+
+/* Anillo doble: se ve tanto sobre fondos claros como oscuros */
+.btn-flotante-chat:focus-visible,
+.chat-cerrar:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 0;
+    box-shadow: 0 0 0 6px #240046;
+}
+
+/* Panel de conversación */
+.panel-chat {
+    position: fixed;
+    right: 25px;
+    bottom: 155px;
+    width: 340px;
+    max-width: calc(100vw - 30px);
+    height: min(440px, calc(100vh - 180px));
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(36, 0, 70, 0.25);
+    overflow: hidden;
+    z-index: 4000;
+}
+
+/* Sin esta regla, "display: flex" pisa al atributo hidden y el panel nunca se ocultaría */
+.panel-chat[hidden] {
+    display: none;
+}
+
+.chat-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background-color: #5a189a;
+    color: #ffffff;
+}
+
+.chat-titulo {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.chat-cerrar {
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.chat-mensajes {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.mensaje {
+    max-width: 85%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: pre-wrap;      /* respeta los saltos de línea del FAQ */
+    overflow-wrap: anywhere;
+}
+
+.mensaje-bot {
+    align-self: flex-start;
+    background-color: #f3f1f5;
+    color: #240046;
+    border-bottom-left-radius: 4px;
+}
+
+.mensaje-usuario {
+    align-self: flex-end;
+    background-color: #5a189a;
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+}
+
+.mensaje-pendiente {
+    font-style: italic;
+    color: #495057;
+}
+
+.chat-formulario {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.7rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.chat-entrada {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.chat-entrada:focus-visible {
+    outline: 3px solid #7b2cbf;
+    outline-offset: 1px;
+}
+
+.chat-enviar {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #5a189a;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chat-enviar:hover:not(:disabled) {
+    background-color: #7b2cbf;
+}
+
+.chat-enviar:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.chat-enviar:focus-visible {
+    outline: 3px solid #7b2cbf;
+    outline-offset: 2px;
+}
+
+.chat-aviso {
+    padding: 0.5rem 0.8rem 0.7rem;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    color: #495057;
+}
+
+.chat-aviso a {
+    color: #5a189a;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .btn-flotante-chat { width: 50px; height: 50px; right: 20px; bottom: 80px; font-size: 1.4rem; }
+    .panel-chat { right: 15px; bottom: 142px; width: calc(100vw - 30px); height: min(440px, calc(100vh - 170px)); }
+}
