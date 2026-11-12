@@ -92,7 +92,7 @@ nav ul li a:hover {
 /* --- SECCIÓN PRINCIPAL / HERO --- */
 #inicio {
     background: linear-gradient(rgba(36, 0, 70, 0.88), rgba(90, 24, 154, 0.88)), 
-                url('https://unsplash.com') no-repeat center center/cover;
+                url('../img/hero-riego.jpg') no-repeat center center/cover;
     color: white;
     text-align: left; /* Alineado a la izquierda como la referencia original */
     padding: 6rem 4rem;
@@ -1933,41 +1933,6 @@ footer {
     .contenedor-columnas-footer { flex-direction: column; gap: 30px; text-align: center; }
     .info-empresa-f .logo-footer-f { justify-content: center; }
     .contenido-derechos { flex-direction: column; text-align: center; gap: 10px; }
-}
-
-.boton-cerrar {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: #666;
-}
-
-.boton-cerrar:hover {
-    color: #ff0000;
-}
-
-/* Diseño del Formulario Interno */
-#formularioRiego {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.5rem;
-}
-
-#formularioRiego input, #formularioRiego select {
-    padding: 0.7rem;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-
-#formularioRiego input:focus, #formularioRiego select:focus {
-    outline: none;
-    border-color: #7b2cbf; /* El borde se ilumina en morado al hacer clic */
-    box-shadow: 0 0 5px rgba(123, 44, 191, 0.3);
 }
 
 /* Ajustes para el Menú y el Logotipo */
