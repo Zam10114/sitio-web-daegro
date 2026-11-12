@@ -1771,8 +1771,22 @@ nav ul li a:hover {
     transition: transform 0.2s;
 }
 
+.btn-flotante-wa img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+}
+
 .btn-flotante-wa:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .btn-flotante-wa img {
+        width: 26px;
+        height: 26px;
+    }
 }
 
 /* Ajustes adaptativos */
@@ -2111,4 +2125,129 @@ header {
     .tarjeta { width: 100%; margin-bottom: 20px; }
     #inicio h1 { font-size: 1.8rem; }
     #inicio .botones-hero a, .boton-secundario { display: block; width: 100%; margin: 10px 0 !important; text-align: center; }
+}
+
+/* ==========================================================================
+   ENLACES LEGALES EN EL FOOTER
+   ========================================================================== */
+.enlaces-legales-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.enlaces-legales-footer a {
+    color: #e0aaff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.enlaces-legales-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.separador-legal {
+    opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+    .enlaces-legales-footer {
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   BANNER DE GESTIÓN DE COOKIES
+   ========================================================================== */
+.banner-cookies {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    max-width: 440px;
+    background-color: #1a0036; /* Morado oscuro corporativo DAEGRO */
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(199, 125, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    z-index: 4500;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.banner-cookies[hidden] {
+    display: none !important;
+}
+
+.banner-cookies p {
+    margin-bottom: 1.2rem;
+    color: #f3f1f5;
+}
+
+.banner-cookies a {
+    color: #c77dff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.banner-cookies a:hover {
+    color: #ffffff;
+}
+
+.botones-cookies {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-cookie-primario,
+.btn-cookie-secundario {
+    padding: 0.6rem 1.1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-cookie-primario {
+    background-color: #00a86b; /* Verde esmeralda de acción DAEGRO */
+    color: #ffffff;
+    border: none;
+}
+
+.btn-cookie-primario:hover {
+    background-color: #008f5a;
+}
+
+.btn-cookie-secundario {
+    background-color: transparent;
+    color: #e0aaff;
+    border: 1px solid rgba(224, 170, 255, 0.4);
+}
+
+.btn-cookie-secundario:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* Ajuste móvil para que no choque con el botón flotante de WhatsApp */
+@media (max-width: 600px) {
+    .banner-cookies {
+        left: 15px;
+        right: 15px;
+        bottom: 85px; /* Se eleva justo encima del botón de WhatsApp */
+        max-width: none;
+        padding: 1.2rem;
+    }
+    .botones-cookies {
+        flex-direction: column-reverse;
+    }
+    .btn-cookie-primario,
+    .btn-cookie-secundario {
+        width: 100%;
+        text-align: center;
+    }
 }
