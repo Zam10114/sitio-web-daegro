@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Agro-IoT en Vivo</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f0f4f3; color: #2c3e50; max-width: 750px; margin: 30px auto; padding: 15px; }
+    h2 { text-align: center; color: #1b5e20; margin-bottom: 20px; }
+    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center; }
+    .etiqueta { font-size: 0.95rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .valor-temp { font-size: 2.4rem; font-weight: bold; color: #e65100; margin: 8px 0; }
+    .valor-hum { font-size: 2.4rem; font-weight: bold; color: #0277bd; margin: 8px 0; }
+    .hora-actualizacion { text-align: center; font-size: 0.85rem; color: #888; margin-top: 5px; }
+    button { width: 100%; padding: 16px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+    .btn-off { background: #e0e0e0; color: #333; }
+    .btn-off:hover { background: #d5d5d5; }
+    .btn-on { background: #2e7d32; color: white; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); }
+    .btn-on:hover { background: #1b5e20; }
+    .chart-container { position: relative; height: 280px; width: 100%; }
+  </style>
+</head>
+<body>
+
+  <h2>🌱 Monitoreo y Control - Parcela 1</h2>
+
+  <div class="card">
+    <div class="grid">
+      <div>
+        <div class="etiqueta">Temperatura</div>
+        <div class="valor-temp" id="temp">-- °C</div>
+      </div>
+      <div>
+        <div class="etiqueta">Humedad Suelo</div>
+        <div class="valor-hum" id="hum">-- %</div>
+      </div>
+    </div>
+    <div class="hora-actualizacion" id="ultimaHora">Cargando conexión...</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top: 0; font-size: 1.1rem; color: #444;">📊 Historial Reciente (Últimas 15 lecturas)</h3>
+    <div class="chart-container">
+      <canvas id="graficaSensores"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top: 0; font-size: 1.1rem; color: #444;">⚙️ Control de Riego Remoto (Bomba 1)</h3>
+    <button id="btnBomba" class="btn-off" onclick="alternarBomba()">Cargando estado...</button>
+  </div>
+
+  <!-- Librerías desde servidores CDN alternativos más rápidos -->
+    <script src="./supabase.js"></script>
+    <script src="./chart.js"></script>
+
+
+  <script>
+    const SUPABASE_URL = 'https://iwcqmpckjohfhzursqaf.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_5EPJywJcULLX3gnnedbp_w_u16YlpmO';
+    
+     const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let estadoBomba = false;
+    const MAX_PUNTOS = 15;
+
+    const ctx = document.getElementById('graficaSensores').getContext('2d');
+    const grafica = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [
+          {
+            label: 'Temperatura (°C)',
+            data: [],
+            borderColor: '#e65100',
+            backgroundColor: 'rgba(230, 81, 0, 0.1)',
+            borderWidth: 2,
+            tension: 0.3,
+            fill: true
+          },
+          {
+            label: 'Humedad (%)',
+            data: [],
+            borderColor: '#0277bd',
+            backgroundColor: 'rgba(2, 119, 189, 0.1)',
+            borderWidth: 2,
+            tension: 0.3,
+            fill: true
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { y: { beginAtZero: false } },
+        animation: { duration: 400 }
+      }
+    });
+
+    function formatearHora(fechaISO) {
+      const fecha = new Date(fechaISO);
+      return fecha.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+
+    async function iniciar() {
+      // 1. Cargar historial de sensores
+      const { data: lecturas } = await db
+        .from('lecturas_sensores')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(MAX_PUNTOS);
+
+      if (lecturas && lecturas.length > 0) {
+        actualizarTarjetas(lecturas[0]);
+
+        const historialOrdenado = lecturas.reverse();
+        historialOrdenado.forEach(dato => {
+          grafica.data.labels.push(formatearHora(dato.created_at));
+          grafica.data.datasets[0].data.push(dato.temperatura);
+          grafica.data.datasets[1].data.push(dato.humedad);
+        });
+        grafica.update();
+      }
+
+      // 2. Cargar estado de la bomba
+      const { data: actuador, error: errBomba } = await db
+        .from('estado_actuadores')
+        .select('bomba_agua')
+        .eq('dispositivo_id', 'esp32_demo')
+        .maybeSingle();
+
+      if (actuador) {
+        actualizarBotonBomba(actuador.bomba_agua);
+      } else {
+        // Si no encuentra el registro, habilita el botón en OFF por defecto
+        actualizarBotonBomba(false);
+        if (errBomba) console.error("Detalle bomba:", errBomba.message);
+      }
+    }
+
+    // 3. Escuchar nuevos datos de sensores en tiempo real
+    db.channel('sensores-vivo')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'lecturas_sensores' }, payload => {
+        const nuevoDato = payload.new;
+        actualizarTarjetas(nuevoDato);
+        agregarPuntoGrafica(nuevoDato);
+      })
+      .subscribe();
+
+    // 4. Escuchar cambios en la bomba en tiempo real
+    db.channel('actuadores-vivo')
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'estado_actuadores' }, payload => {
+        actualizarBotonBomba(payload.new.bomba_agua);
+      })
+      .subscribe();
+
+    function actualizarTarjetas(dato) {
+      document.getElementById('temp').innerText = `${dato.temperatura} °C`;
+      document.getElementById('hum').innerText = `${dato.humedad} %`;
+      document.getElementById('ultimaHora').innerText = `Última lectura: ${formatearHora(dato.created_at)}`;
+    }
+
+    function agregarPuntoGrafica(dato) {
+      if (grafica.data.labels.length >= MAX_PUNTOS) {
+        grafica.data.labels.shift();
+        grafica.data.datasets[0].data.shift();
+        grafica.data.datasets[1].data.shift();
+      }
+
+      grafica.data.labels.push(formatearHora(dato.created_at));
+      grafica.data.datasets[0].data.push(dato.temperatura);
+      grafica.data.datasets[1].data.push(dato.humedad);
+      grafica.update();
+    }
+
+    function actualizarBotonBomba(encendida) {
+      estadoBomba = encendida;
+      const btn = document.getElementById('btnBomba');
+      btn.innerText = encendida ? '💧 BOMBA ENCENDIDA (Clic para apagar)' : '🛑 BOMBA APAGADA (Clic para encender)';
+      btn.className = encendida ? 'btn-on' : 'btn-off';
+    }
+
+    async function alternarBomba() {
+      const nuevoEstado = !estadoBomba;
+      actualizarBotonBomba(nuevoEstado);
+      
+      await db
+        .from('estado_actuadores')
+        .update({ bomba_agua: nuevoEstado, actualizado_en: new Date().toISOString() })
+        .eq('dispositivo_id', 'esp32_demo');
+    }
+
+    iniciar();
+  </script>
+</body>
+</html>
+
