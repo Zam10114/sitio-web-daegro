@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /legal/
+Disallow: /dashboard.html
 
-Sitemap: https://daegro.com
+Sitemap: https://www.daegro.com/sitemap.xml

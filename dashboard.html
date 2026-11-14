@@ -1,85 +1,261 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Agro-IoT en Vivo</title>
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="icon" href="../assets/img/favicon/favicon.ico" sizes="32x32">
-  <!-- <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"> -->
-  <link rel="apple-touch-icon" href="../assets/img/favicon/apple-touch-icon.png">
+  <title>Panel Agro-IoT en Vivo | DAEGRO</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/img/favicon/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png">
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; background: #f0f4f3; color: #2c3e50; max-width: 750px; margin: 30px auto; padding: 15px; }
-    h2 { text-align: center; color: #1b5e20; margin-bottom: 20px; }
-    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 20px; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center; }
-    .etiqueta { font-size: 0.95rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .valor-temp { font-size: 2.4rem; font-weight: bold; color: #e65100; margin: 8px 0; }
-    .valor-hum { font-size: 2.4rem; font-weight: bold; color: #0277bd; margin: 8px 0; }
-    .hora-actualizacion { text-align: center; font-size: 0.85rem; color: #888; margin-top: 5px; }
-    button { width: 100%; padding: 16px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-    .btn-off { background: #e0e0e0; color: #333; }
-    .btn-off:hover { background: #d5d5d5; }
-    .btn-on { background: #2e7d32; color: white; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); }
-    .btn-on:hover { background: #1b5e20; }
-    .chart-container { position: relative; height: 280px; width: 100%; }
+    body {
+      background: #f0f4f3;
+      color: #2c3e50;
+    }
+    .dashboard-main {
+      max-width: 780px;
+      margin: 2rem auto;
+      padding: 0 1rem 2rem;
+    }
+    .dashboard-main h1 {
+      text-align: center;
+      color: #240046;
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      margin-bottom: 20px;
+      border: 1px solid #e9ecef;
+    }
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+      color: #240046;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      text-align: center;
+    }
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .etiqueta {
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .valor-temp {
+      font-size: 2.3rem;
+      font-weight: bold;
+      color: #c64300;
+      margin: 8px 0;
+    }
+    .valor-hum {
+      font-size: 2.3rem;
+      font-weight: bold;
+      color: #01579b;
+      margin: 8px 0;
+    }
+    .hora-actualizacion {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #596168;
+      margin-top: 8px;
+    }
+    .btn-control {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s, opacity 0.2s;
+    }
+    .btn-control:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    .btn-off {
+      background: #e0e0e0;
+      color: #222;
+    }
+    .btn-off:hover:not(:disabled) {
+      background: #d0d0d0;
+    }
+    .btn-on {
+      background: #007a4d;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 122, 77, 0.28);
+    }
+    .btn-on:hover:not(:disabled) {
+      background: #00633e;
+    }
+    .chart-container {
+      position: relative;
+      height: 280px;
+      width: 100%;
+    }
+    .auth-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #e9ecef;
+    }
+    .auth-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .auth-row input {
+      flex: 1;
+      min-width: 180px;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .btn-auth {
+      background: #5a189a;
+      color: #ffffff;
+      border: none;
+      padding: 0.65rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-auth:hover {
+      background: #3c096c;
+    }
+    .btn-logout {
+      background: transparent;
+      color: #5a189a;
+      border: 1px solid #5a189a;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .estado-msg {
+      font-size: 0.88rem;
+      margin-top: 8px;
+      color: #495057;
+    }
+    .estado-msg.error {
+      color: #b00020;
+      font-weight: 600;
+    }
+    .sesion-activa {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: #00633e;
+    }
   </style>
 </head>
 <body>
 
   <header>
-        <a href="../index.html">
-            <!-- Ajusta el nombre de tu archivo de logo si es distinto -->
-            <img src="../assets/img/favicon/logo.svg" alt="Logo DAEGRO" class="logo-sitio">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="../index.html">← Volver al inicio</a></li>
-            </ul>
-        </nav>
+    <a href="index.html" aria-label="Volver al inicio de DAEGRO">
+      <img src="assets/img/favicon/logo.svg" alt="Logo DAEGRO" class="logo-sitio" height="44" width="145">
+    </a>
+    <nav aria-label="Navegación del panel">
+      <ul>
+        <li><a href="index.html">← Volver al inicio</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <h2>🌱 Monitoreo y Control - Parcela 1</h2>
+  <main class="dashboard-main">
+    <h1><span aria-hidden="true">🌱</span> Monitoreo y Control - Parcela 1</h1>
 
-  <div class="card">
-    <div class="grid">
-      <div>
-        <div class="etiqueta">Temperatura</div>
-        <div class="valor-temp" id="temp">-- °C</div>
+    <section class="card" aria-label="Lecturas actuales">
+      <div class="grid">
+        <div>
+          <div class="etiqueta">Temperatura</div>
+          <div class="valor-temp" id="temp">-- °C</div>
+        </div>
+        <div>
+          <div class="etiqueta">Humedad Suelo</div>
+          <div class="valor-hum" id="hum">-- %</div>
+        </div>
       </div>
-      <div>
-        <div class="etiqueta">Humedad Suelo</div>
-        <div class="valor-hum" id="hum">-- %</div>
+      <div class="hora-actualizacion" id="ultimaHora" role="status">Cargando conexión...</div>
+    </section>
+
+    <section class="card" aria-label="Historial de sensores">
+      <h2><span aria-hidden="true">📊</span> Historial Reciente (Últimas 15 lecturas)</h2>
+      <div class="chart-container">
+        <canvas id="graficaSensores"></canvas>
       </div>
-    </div>
-    <div class="hora-actualizacion" id="ultimaHora">Cargando conexión...</div>
-  </div>
+    </section>
 
-  <div class="card">
-    <h3 style="margin-top: 0; font-size: 1.1rem; color: #444;">📊 Historial Reciente (Últimas 15 lecturas)</h3>
-    <div class="chart-container">
-      <canvas id="graficaSensores"></canvas>
-    </div>
-  </div>
+    <section class="card" aria-label="Control de bomba">
+      <h2><span aria-hidden="true">⚙️</span> Control de Riego Remoto (Bomba 1)</h2>
+      <button id="btnBomba" type="button" class="btn-control btn-off" disabled>Cargando estado...</button>
+      <div id="mensajeControl" class="estado-msg" role="status"></div>
 
-  <div class="card">
-    <h3 style="margin-top: 0; font-size: 1.1rem; color: #444;">⚙️ Control de Riego Remoto (Bomba 1)</h3>
-    <button id="btnBomba" class="btn-off" onclick="alternarBomba()">Cargando estado...</button>
-  </div>
+      <form id="formAuth" class="auth-box" hidden>
+        <p class="estado-msg">Inicia sesión con una cuenta autorizada para operar la bomba.</p>
+        <div class="auth-row">
+          <input type="email" id="authEmail" autocomplete="email" required placeholder="Correo de operador">
+          <input type="password" id="authPassword" autocomplete="current-password" required placeholder="Contraseña">
+          <button type="submit" class="btn-auth">Desbloquear control</button>
+        </div>
+      </form>
 
-  <!-- Librerías desde servidores CDN alternativos más rápidos -->
-    <script src="./supabase.js"></script>
-    <script src="./chart.js"></script>
+      <div id="panelSesion" class="sesion-activa" hidden>
+        <span id="textoUsuario"></span>
+        <button id="btnLogout" type="button" class="btn-logout">Cerrar sesión</button>
+      </div>
+    </section>
+  </main>
 
+  <!-- Librerías locales (Supabase JS y Chart.js) -->
+  <script src="./supabase.js"></script>
+  <script src="./chart.js"></script>
 
   <script>
     const SUPABASE_URL = 'https://iwcqmpckjohfhzursqaf.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_5EPJywJcULLX3gnnedbp_w_u16YlpmO';
-    
-     const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const DISPOSITIVO_ID = 'esp32_demo';
+    const MAX_PUNTOS = 15;
+
+    const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     let estadoBomba = false;
-    const MAX_PUNTOS = 15;
+    let sesionActiva = null;
+    let actualizandoBomba = false;
+
+    const elTemp = document.getElementById('temp');
+    const elHum = document.getElementById('hum');
+    const elUltimaHora = document.getElementById('ultimaHora');
+    const btnBomba = document.getElementById('btnBomba');
+    const elMensajeControl = document.getElementById('mensajeControl');
+    const formAuth = document.getElementById('formAuth');
+    const panelSesion = document.getElementById('panelSesion');
+    const textoUsuario = document.getElementById('textoUsuario');
+    const btnLogout = document.getElementById('btnLogout');
 
     const ctx = document.getElementById('graficaSensores').getContext('2d');
     const grafica = new Chart(ctx, {
@@ -117,65 +293,36 @@
 
     function formatearHora(fechaISO) {
       const fecha = new Date(fechaISO);
+      if (Number.isNaN(fecha.getTime())) return 'Hora inválida';
       return fecha.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     }
 
-    async function iniciar() {
-      // 1. Cargar historial de sensores
-      const { data: lecturas } = await db
-        .from('lecturas_sensores')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(MAX_PUNTOS);
-
-      if (lecturas && lecturas.length > 0) {
-        actualizarTarjetas(lecturas[0]);
-
-        const historialOrdenado = lecturas.reverse();
-        historialOrdenado.forEach(dato => {
-          grafica.data.labels.push(formatearHora(dato.created_at));
-          grafica.data.datasets[0].data.push(dato.temperatura);
-          grafica.data.datasets[1].data.push(dato.humedad);
-        });
-        grafica.update();
-      }
-
-      // 2. Cargar estado de la bomba
-      const { data: actuador, error: errBomba } = await db
-        .from('estado_actuadores')
-        .select('bomba_agua')
-        .eq('dispositivo_id', 'esp32_demo')
-        .maybeSingle();
-
-      if (actuador) {
-        actualizarBotonBomba(actuador.bomba_agua);
-      } else {
-        // Si no encuentra el registro, habilita el botón en OFF por defecto
-        actualizarBotonBomba(false);
-        if (errBomba) console.error("Detalle bomba:", errBomba.message);
-      }
+    function mostrarMensajeControl(texto, esError = false) {
+      elMensajeControl.textContent = texto;
+      elMensajeControl.className = esError ? 'estado-msg error' : 'estado-msg';
     }
 
-    // 3. Escuchar nuevos datos de sensores en tiempo real
-    db.channel('sensores-vivo')
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'lecturas_sensores' }, payload => {
-        const nuevoDato = payload.new;
-        actualizarTarjetas(nuevoDato);
-        agregarPuntoGrafica(nuevoDato);
-      })
-      .subscribe();
+    function actualizarEstadoAuthUI(session) {
+      sesionActiva = session;
+      const autenticado = Boolean(session && session.user);
 
-    // 4. Escuchar cambios en la bomba en tiempo real
-    db.channel('actuadores-vivo')
-      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'estado_actuadores' }, payload => {
-        actualizarBotonBomba(payload.new.bomba_agua);
-      })
-      .subscribe();
+      formAuth.hidden = autenticado;
+      panelSesion.hidden = !autenticado;
+      btnBomba.disabled = !autenticado || actualizandoBomba;
+
+      if (autenticado) {
+        textoUsuario.textContent = `Operador conectado: ${session.user.email || 'Usuario autenticado'}`;
+      } else {
+        textoUsuario.textContent = '';
+      }
+
+      actualizarBotonBomba(estadoBomba);
+    }
 
     function actualizarTarjetas(dato) {
-      document.getElementById('temp').innerText = `${dato.temperatura} °C`;
-      document.getElementById('hum').innerText = `${dato.humedad} %`;
-      document.getElementById('ultimaHora').innerText = `Última lectura: ${formatearHora(dato.created_at)}`;
+      elTemp.textContent = `${dato.temperatura} °C`;
+      elHum.textContent = `${dato.humedad} %`;
+      elUltimaHora.textContent = `Última lectura: ${formatearHora(dato.created_at)}`;
     }
 
     function agregarPuntoGrafica(dato) {
@@ -184,7 +331,6 @@
         grafica.data.datasets[0].data.shift();
         grafica.data.datasets[1].data.shift();
       }
-
       grafica.data.labels.push(formatearHora(dato.created_at));
       grafica.data.datasets[0].data.push(dato.temperatura);
       grafica.data.datasets[1].data.push(dato.humedad);
@@ -192,24 +338,152 @@
     }
 
     function actualizarBotonBomba(encendida) {
-      estadoBomba = encendida;
-      const btn = document.getElementById('btnBomba');
-      btn.innerText = encendida ? '💧 BOMBA ENCENDIDA (Clic para apagar)' : '🛑 BOMBA APAGADA (Clic para encender)';
-      btn.className = encendida ? 'btn-on' : 'btn-off';
+      estadoBomba = Boolean(encendida);
+      const etiquetaEstado = estadoBomba ? '💧 BOMBA ENCENDIDA' : '🛑 BOMBA APAGADA';
+
+      if (!sesionActiva) {
+        btnBomba.textContent = `${etiquetaEstado} (Inicia sesión para operar)`;
+      } else {
+        btnBomba.textContent = estadoBomba
+          ? '💧 BOMBA ENCENDIDA (Clic para apagar)'
+          : '🛑 BOMBA APAGADA (Clic para encender)';
+      }
+
+      btnBomba.className = estadoBomba ? 'btn-control btn-on' : 'btn-control btn-off';
+      btnBomba.disabled = !sesionActiva || actualizandoBomba;
     }
 
     async function alternarBomba() {
-      const nuevoEstado = !estadoBomba;
-      actualizarBotonBomba(nuevoEstado);
-      
-      await db
+      if (!sesionActiva || actualizandoBomba) return;
+
+      const estadoAnterior = estadoBomba;
+      const nuevoEstado = !estadoAnterior;
+
+      actualizandoBomba = true;
+      btnBomba.disabled = true;
+      btnBomba.textContent = 'Enviando comando...';
+      mostrarMensajeControl('');
+
+      const { data, error } = await db
         .from('estado_actuadores')
         .update({ bomba_agua: nuevoEstado, actualizado_en: new Date().toISOString() })
-        .eq('dispositivo_id', 'esp32_demo');
+        .eq('dispositivo_id', DISPOSITIVO_ID)
+        .select('bomba_agua')
+        .maybeSingle();
+
+      actualizandoBomba = false;
+
+      if (error || !data) {
+        actualizarBotonBomba(estadoAnterior);
+        mostrarMensajeControl(
+          `No se pudo cambiar el estado de la bomba: ${error ? error.message : 'sin permisos o registro no encontrado.'}`,
+          true
+        );
+        return;
+      }
+
+      actualizarBotonBomba(data.bomba_agua);
+      mostrarMensajeControl(`Estado actualizado a ${data.bomba_agua ? 'ENCENDIDA' : 'APAGADA'}.`);
     }
+
+    async function cargarDatosIniciales() {
+      const { data: lecturas, error: errLecturas } = await db
+        .from('lecturas_sensores')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(MAX_PUNTOS);
+
+      if (errLecturas) {
+        elUltimaHora.textContent = 'No fue posible cargar las lecturas.';
+        console.error('Error lecturas:', errLecturas.message);
+      } else if (lecturas && lecturas.length > 0) {
+        actualizarTarjetas(lecturas[0]);
+        grafica.data.labels = [];
+        grafica.data.datasets[0].data = [];
+        grafica.data.datasets[1].data = [];
+
+        lecturas.slice().reverse().forEach(dato => {
+          grafica.data.labels.push(formatearHora(dato.created_at));
+          grafica.data.datasets[0].data.push(dato.temperatura);
+          grafica.data.datasets[1].data.push(dato.humedad);
+        });
+        grafica.update();
+      } else {
+        elUltimaHora.textContent = 'Sin lecturas registradas aún.';
+      }
+
+      const { data: actuador, error: errBomba } = await db
+        .from('estado_actuadores')
+        .select('bomba_agua')
+        .eq('dispositivo_id', DISPOSITIVO_ID)
+        .maybeSingle();
+
+      if (errBomba) {
+        mostrarMensajeControl(`Error al consultar actuador: ${errBomba.message}`, true);
+        actualizarBotonBomba(false);
+      } else if (actuador) {
+        actualizarBotonBomba(actuador.bomba_agua);
+      } else {
+        actualizarBotonBomba(false);
+      }
+    }
+
+    async function iniciar() {
+      const { data: { session } } = await db.auth.getSession();
+      actualizarEstadoAuthUI(session);
+
+      db.auth.onAuthStateChange((_event, sessionActual) => {
+        actualizarEstadoAuthUI(sessionActual);
+        cargarDatosIniciales();
+      });
+
+      await cargarDatosIniciales();
+
+      db.channel('sensores-vivo')
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'lecturas_sensores' }, payload => {
+          actualizarTarjetas(payload.new);
+          agregarPuntoGrafica(payload.new);
+        })
+        .subscribe((status) => {
+          if (status === 'CHANNEL_ERROR') {
+            elUltimaHora.textContent = 'Error en suscripción en tiempo real.';
+          }
+        });
+
+      db.channel('actuadores-vivo')
+        .on(
+          'postgres_changes',
+          { event: 'UPDATE', schema: 'public', table: 'estado_actuadores', filter: `dispositivo_id=eq.${DISPOSITIVO_ID}` },
+          payload => {
+            actualizarBotonBomba(payload.new.bomba_agua);
+          }
+        )
+        .subscribe();
+    }
+
+    btnBomba.addEventListener('click', alternarBomba);
+
+    formAuth.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      mostrarMensajeControl('Verificando credenciales...');
+      const email = document.getElementById('authEmail').value.trim();
+      const password = document.getElementById('authPassword').value;
+
+      const { error } = await db.auth.signInWithPassword({ email, password });
+      if (error) {
+        mostrarMensajeControl(`Error de autenticación: ${error.message}`, true);
+      } else {
+        formAuth.reset();
+        mostrarMensajeControl('Sesión iniciada. Control desbloqueado.');
+      }
+    });
+
+    btnLogout.addEventListener('click', async () => {
+      await db.auth.signOut();
+      mostrarMensajeControl('Sesión cerrada.');
+    });
 
     iniciar();
   </script>
 </body>
 </html>
-
