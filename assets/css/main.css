@@ -1,4 +1,31 @@
 /* Configuración General y Portabilidad */
+:root {
+    /* 60% Dominante - Fondos */
+    --bg-arena: #F8F9F6;
+    --bg-blanco: #FFFFFF;
+    --bg-header: #F1F4F0;
+
+    /* 30% Secundario - Identidad Agrícola */
+    --verde-oscuro: #122E22;      /* Topbar y Footer */
+    --verde-bosque: #1B4332;      /* Títulos principales, Hero y contenedores */
+    --verde-medio: #2D6A4F;       /* Hover y subtítulos */
+    --verde-suave: #D8F3DC;       /* Fondos de badges e íconos */
+
+    /* Apoyo Tecnológico - Agua y Precisión */
+    --azul-agua: #0077B6;
+    --azul-agua-hover: #005F92;
+    --azul-claro: #E0F2FE;
+
+    /* 10% Acento - Llamados a la Acción (CTA) */
+    --ambar-cta: #E07A2E;
+    --ambar-cta-hover: #C5651E;
+    --ambar-suave: #FDECE0;
+
+    /* Textos */
+    --texto-principal: #1F2421;
+    --texto-secundario: #4A5550;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +34,8 @@
 }
 
 body {
-    background-color: #f4f7f6;
-    color: #333333;
+    background-color: var(--bg-arena);
+    color: var(--texto-principal);
     line-height: 1.6;
 }
 
@@ -22,7 +49,7 @@ html, body {
     position: absolute;
     left: -9999px;
     top: 0;
-    background-color: #240046;
+    background-color: var(--verde-bosque);
     color: #ffffff;
     padding: 0.75rem 1.25rem;
     font-weight: 700;
@@ -37,7 +64,7 @@ html, body {
 
 /* --- BARRA SUPERIOR INFORMATIVA --- */
 .topbar {
-    background-color: #1a0036;
+    background-color: var(--verde-oscuro);
     color: #ffffff;
     font-size: 0.85rem;
     padding: 0.5rem 2rem;
@@ -60,7 +87,7 @@ html, body {
 }
 
 .topbar-der a:hover {
-    color: #c77dff;
+    color: var(--verde-suave);
 }
 
 .separador {
@@ -75,7 +102,7 @@ html, body {
 
 /* Encabezado y Navegación Global */
 header {
-    background-color: #f3f1f5;
+    background-color: var(--bg-header);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -108,20 +135,20 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #240046;
+    color: var(--verde-bosque);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #7b2cbf;
+    color: var(--azul-agua);
 }
 
 /* --- SECCIÓN PRINCIPAL / HERO --- */
 #inicio {
-    background: linear-gradient(rgba(36, 0, 70, 0.88), rgba(90, 24, 154, 0.88)),
-                url('../img/hero-riego.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(18, 46, 34, 0.88), rgba(27, 67, 50, 0.82)),
+            url('../img/hero-riego.jpg') no-repeat center center/cover;
     color: #ffffff;
     text-align: left;
     padding: 6rem 4rem;
@@ -148,7 +175,7 @@ nav ul li a:hover {
 }
 
 .texto-resaltado {
-    color: #e0aaff;
+    color: #95D5B2;
     text-decoration: underline;
     text-underline-offset: 6px;
 }
@@ -194,7 +221,7 @@ nav ul li a:hover {
 }
 
 .boton-verde {
-    background-color: #007a4d;
+    background-color: var(--ambar-cta);
     color: #ffffff;
     border: none;
     padding: 0.9rem 2rem;
@@ -206,7 +233,7 @@ nav ul li a:hover {
 }
 
 .boton-verde:hover {
-    background-color: #00633e;
+    background-color: var(--ambar-cta-hover);
     transform: translateY(-2px);
 }
 
@@ -243,7 +270,7 @@ nav ul li a:hover {
    ========================================================================== */
 #servicios {
     padding: 5rem 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--bg-arena);
     text-align: center;
 }
 
@@ -254,19 +281,19 @@ nav ul li a:hover {
 
 .subtitulo-competitiva {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: rgba(123, 44, 191, 0.08);
+    background-color: var(--verde-suave);
     padding: 0.4rem 1rem;
     border-radius: 15px;
     margin-bottom: 1rem;
 }
 
 #servicios h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     line-height: 1.2;
     margin-bottom: 1.2rem;
@@ -312,7 +339,7 @@ nav ul li a:hover {
 }
 
 .tarjeta-servicio h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
     font-weight: 700;
@@ -334,7 +361,7 @@ nav ul li a:hover {
    SUBSECCIÓN: PROCESOS TÉCNICOS DAEGRO
    ========================================================================== */
 .contenedor-procesos-tecnicos {
-    background-color: #240046;
+    background-color: var(--verde-bosque);
     padding: 4rem 2rem;
     margin-top: 4rem;
     border-radius: 16px;
@@ -365,8 +392,8 @@ nav ul li a:hover {
     position: absolute;
     top: -12px;
     right: 20px;
-    background-color: #ffb703;
-    color: #240046;
+    background-color: var(--ambar-cta);
+    color: #ffffff;
     font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -381,7 +408,7 @@ nav ul li a:hover {
 }
 
 .tarjeta-proceso h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.25rem;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -419,7 +446,7 @@ nav ul li a:hover {
 }
 
 .enlace-proceso-accion {
-    color: #5a189a;
+    color: var(--azul-agua);
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
@@ -428,7 +455,7 @@ nav ul li a:hover {
 }
 
 .enlace-proceso-accion:hover {
-    color: #7b2cbf;
+    color: var(--azul-agua-hover);
     text-decoration: underline;
 }
 
@@ -447,7 +474,7 @@ nav ul li a:hover {
    ========================================================================== */
 #riego {
     padding: 5rem 2rem;
-    background-color: #ffffff;
+    background-color: var(--bg-blanco);
     text-align: center;
 }
 
@@ -458,19 +485,19 @@ nav ul li a:hover {
 
 .subtitulo-eficiencia {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: rgba(157, 78, 221, 0.1);
+    background-color: var(--verde-suave);
     padding: 0.4rem 1rem;
     border-radius: 15px;
     margin-bottom: 1rem;
 }
 
 #riego h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 1.2rem;
@@ -539,7 +566,7 @@ nav ul li a:hover {
 }
 
 .tarjeta-riego-tecnico h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
@@ -553,7 +580,7 @@ nav ul li a:hover {
 }
 
 .enlace-riego-tecnico {
-    color: #5a189a;
+    color: var(--azul-agua);
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
@@ -562,7 +589,7 @@ nav ul li a:hover {
 }
 
 .enlace-riego-tecnico:hover {
-    color: #7b2cbf;
+    color: var(--azul-agua-hover);
     text-decoration: underline;
 }
 
@@ -577,7 +604,7 @@ nav ul li a:hover {
    ========================================================================== */
 #bombeo {
     padding: 5rem 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--bg-arena);
     text-align: center;
 }
 
@@ -589,7 +616,7 @@ nav ul li a:hover {
 
 .subtitulo-corazon {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
@@ -598,7 +625,7 @@ nav ul li a:hover {
 }
 
 #bombeo h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.2;
@@ -641,7 +668,7 @@ nav ul li a:hover {
 }
 
 .tarjeta-bombeo-tecnico h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -667,7 +694,7 @@ nav ul li a:hover {
     position: absolute;
     left: 0;
     top: 0;
-    color: #7b2cbf;
+    color: var(--azul-agua);
     font-weight: bold;
     font-size: 1.1rem;
 }
@@ -684,7 +711,7 @@ nav ul li a:hover {
    ========================================================================== */
 #automatizacion {
     padding: 5rem 2rem;
-    background-color: #ffffff;
+    background-color: var(-bg-blanco);
 }
 
 .contenedor-dos-columnas {
@@ -703,19 +730,19 @@ nav ul li a:hover {
 
 .subtitulo-digital {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: rgba(123, 44, 191, 0.08);
+    background-color: var(--verde-suave);
     padding: 0.4rem 1rem;
     border-radius: 15px;
     margin-bottom: 1rem;
 }
 
 .columna-info-automatizacion h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.2;
@@ -743,7 +770,7 @@ nav ul li a:hover {
 
 .icono-digital-circulo {
     font-size: 1.3rem;
-    background-color: #7b2cbf;
+    background-color: var(--azul-agua);
     color: #ffffff;
     width: 45px;
     height: 45px;
@@ -755,7 +782,7 @@ nav ul li a:hover {
 }
 
 .item-digital h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.3rem;
@@ -769,7 +796,7 @@ nav ul li a:hover {
 
 /* --- INTERFAZ GRÁFICA DEL MONITOR DIGITAL --- */
 .interfaz-monitor {
-    background: linear-gradient(135deg, #3c096c, #240046);
+    background: linear-gradient(135deg, #005F92, #1B4332);
     color: #ffffff;
     padding: 2.5rem;
     border-radius: 20px;
@@ -865,7 +892,7 @@ nav ul li a:hover {
 .barra-llena-progreso {
     width: 75%;
     height: 100%;
-    background: linear-gradient(90deg, #c77dff, #e0aaff);
+    background: linear-gradient(90deg, #0077B6, #52B788);
     border-radius: 4px;
 }
 
@@ -881,7 +908,7 @@ nav ul li a:hover {
 
 .enlace-panel-vivo {
     display: inline-block;
-    color: #e0aaff;
+    color: #90E0EF;
     font-weight: 700;
     font-size: 0.92rem;
     text-decoration: none;
@@ -908,7 +935,7 @@ nav ul li a:hover {
    ========================================================================== */
 #proteccion {
     padding: 5rem 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--bg-arena);
     text-align: center;
 }
 
@@ -919,19 +946,19 @@ nav ul li a:hover {
 
 .subtitulo-sanidad {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: rgba(123, 44, 191, 0.08);
+    background-color: var(--verde-suave);
     padding: 0.4rem 1rem;
     border-radius: 15px;
     margin-bottom: 1rem;
 }
 
 #proteccion h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 1.2rem;
@@ -989,7 +1016,7 @@ nav ul li a:hover {
 }
 
 .tarjeta-marca h4 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 0.2rem;
@@ -1024,7 +1051,7 @@ nav ul li a:hover {
 }
 
 .tarjeta-insumo h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
@@ -1052,7 +1079,7 @@ nav ul li a:hover {
 }
 
 .bloque-tarjeta-asesoria {
-    background: linear-gradient(135deg, #7b2cbf, #5a189a);
+    background: linear-gradient(135deg, #1B4332, #2D6A4F);
     color: #ffffff;
     padding: 4rem;
     border-radius: 20px;
@@ -1113,7 +1140,7 @@ nav ul li a:hover {
 
 .boton-asesor-parcela {
     background-color: #ffffff;
-    color: #240046;
+    color: var(--verde-bosque);
     border: none;
     padding: 1rem 2rem;
     font-size: 1rem;
@@ -1143,7 +1170,7 @@ nav ul li a:hover {
    ========================================================================== */
 #credito {
     padding: 5rem 2rem;
-    background-color: #ffffff;
+    background-color: var(--bg-blanco);
 }
 
 .contenedor-credito-encabezado {
@@ -1154,19 +1181,19 @@ nav ul li a:hover {
 
 .subtitulo-alianza {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: rgba(123, 44, 191, 0.08);
+    background-color: var(--verde-suave);
     padding: 0.4rem 1rem;
     border-radius: 15px;
     margin-bottom: 1rem;
 }
 
 #credito h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 1.2rem;
@@ -1205,8 +1232,8 @@ nav ul li a:hover {
 
 .icono-credito-b {
     font-size: 1.3rem;
-    background-color: rgba(123, 44, 191, 0.08);
-    color: #5a189a;
+    background-color: var(--azul-claro);
+    color: var(--azul-agua);
     width: 45px;
     height: 45px;
     display: flex;
@@ -1218,7 +1245,7 @@ nav ul li a:hover {
 }
 
 .tarjeta-beneficio-credito h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.4rem;
@@ -1246,14 +1273,14 @@ nav ul li a:hover {
 }
 
 .header-simulador h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.25rem;
     font-weight: 700;
 }
 
 .icono-calculadora-p {
     font-size: 1.2rem;
-    color: #5a189a;
+    color: var(--azul-agua);
 }
 
 .control-slider {
@@ -1272,7 +1299,7 @@ nav ul li a:hover {
 }
 
 .valor-resaltado-simulador {
-    color: #5a189a;
+    color: var(--azul-agua);
     font-size: 1.1rem;
     font-weight: bold;
 }
@@ -1299,7 +1326,7 @@ nav ul li a:hover {
     height: 20px;
     border-radius: 50%;
     background: #ffffff;
-    border: 4px solid #7b2cbf;
+    border: 4px solid var(--azul-agua);
     cursor: pointer;
     transition: transform 0.1s;
 }
@@ -1352,7 +1379,7 @@ nav ul li a:hover {
 }
 
 .monto-resultado.color-morado {
-    color: #5a189a;
+    color: var(--azul-agua);
 }
 
 .nota-legal-simulador {
@@ -1365,7 +1392,7 @@ nav ul li a:hover {
 
 .boton-tramitar-credito {
     width: 100%;
-    background-color: #7b2cbf;
+    background-color: var(--ambar-cta);
     color: #ffffff;
     border: none;
     padding: 1rem;
@@ -1377,7 +1404,7 @@ nav ul li a:hover {
 }
 
 .boton-tramitar-credito:hover {
-    background-color: #5a189a;
+    background-color: var(--ambar-cta-hover);
 }
 
 @media (max-width: 768px) {
@@ -1392,7 +1419,7 @@ nav ul li a:hover {
    ========================================================================== */
 #recursos {
     padding: 5rem 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--bg-arena);
     text-align: left;
 }
 
@@ -1403,12 +1430,12 @@ nav ul li a:hover {
 
 .subtitulo-transferencia {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: rgba(123, 44, 191, 0.08);
+    background-color: var(--verde-suave);
     padding: 0.4rem 1rem;
     border-radius: 15px;
     margin-bottom: 1.5rem;
@@ -1423,7 +1450,7 @@ nav ul li a:hover {
 }
 
 #recursos h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     font-weight: 700;
     flex: 1;
@@ -1511,7 +1538,7 @@ nav ul li a:hover {
 .color-digital { color: #7b2cbf; }
 
 .tarjeta-articulo h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.4;
@@ -1537,7 +1564,7 @@ nav ul li a:hover {
 }
 
 .enlace-leer-guia {
-    color: #5a189a;
+    color: var(--azul-agua);
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
@@ -1545,7 +1572,7 @@ nav ul li a:hover {
 }
 
 .enlace-leer-guia:hover {
-    color: #7b2cbf;
+    color: var(--azul-agua-hover);
     text-decoration: underline;
 }
 
@@ -1562,7 +1589,7 @@ nav ul li a:hover {
    ========================================================================== */
 #contacto {
     padding: 5rem 2rem;
-    background-color: #ffffff;
+    background-color: var(--bg-blanco);
 }
 
 .contenedor-dos-columnas-contacto {
@@ -1581,19 +1608,19 @@ nav ul li a:hover {
 
 .subtitulo-comunicacion {
     display: inline-block;
-    color: #5a189a;
+    color: var(--verde-medio);
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: rgba(123, 44, 191, 0.08);
+    background-color: var(--verde-suave);
     padding: 0.4rem 1rem;
     border-radius: 15px;
     margin-bottom: 1rem;
 }
 
 .columna-datos-contacto h2 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -1633,7 +1660,7 @@ nav ul li a:hover {
 }
 
 .bloque-dato-item h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.05rem;
     font-weight: 700;
     margin-bottom: 0.3rem;
@@ -1681,7 +1708,7 @@ nav ul li a:hover {
 }
 
 .caja-formulario-web h3 {
-    color: #240046;
+    color: var(--verde-bosque);
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -1738,7 +1765,7 @@ nav ul li a:hover {
 }
 
 .boton-enviar-whatsapp {
-    background-color: #007a4d;
+    background-color: var(--ambar-cta);
     color: #ffffff;
     border: none;
     padding: 1rem;
@@ -1752,7 +1779,7 @@ nav ul li a:hover {
 }
 
 .boton-enviar-whatsapp:hover {
-    background-color: #00633e;
+    background-color: var(--ambar-cta-hover);
 }
 
 .estado-formulario {
@@ -1806,7 +1833,7 @@ nav ul li a:hover {
    PIE DE PÁGINA CORPORATIVO (FOOTER)
    ========================================================================== */
 footer {
-    background-color: #1a0036;
+    background-color: var(--verde-oscuro);
     color: #ffffff;
     padding: 4rem 2rem 0 2rem;
     font-size: 0.9rem;
@@ -1849,7 +1876,7 @@ footer {
 }
 
 .columna-footer h4 {
-    color: #e0aaff;
+    color: var(--verde-suave);
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -1874,7 +1901,7 @@ footer {
 }
 
 .columna-footer ul li a:hover {
-    color: #e0aaff;
+    color: var(--verde-suave);
     opacity: 1;
 }
 
@@ -1898,6 +1925,11 @@ footer {
 .direccion-f-pie {
     opacity: 0.9;
 }
+
+footer .logo-sitio {
+    filter: brightness(0) invert(1);
+}
+
 
 @media (max-width: 768px) {
     footer { padding: 3rem 1.5rem 0 1.5rem; text-align: center; }
@@ -1952,7 +1984,7 @@ footer {
     .menu-hamburguesa span {
         width: 100%;
         height: 3px;
-        background-color: #5f1f9b;
+        background-color: var(--verde-bosque);
         border-radius: 2px;
         transition: all 0.3s ease;
     }
@@ -1963,7 +1995,7 @@ footer {
         top: 45px;
         right: 0;
         width: 220px;
-        background-color: #240046;
+        background-color: var(--verde-oscuro);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         border-radius: 8px;
         z-index: 2999;
@@ -2014,7 +2046,7 @@ footer {
 }
 
 .enlaces-legales-footer a {
-    color: #e0aaff;
+    color: var(--verde-suave);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
@@ -2043,11 +2075,11 @@ footer {
     bottom: 25px;
     left: 25px;
     max-width: 440px;
-    background-color: #1a0036;
+    background-color: var(--verde-oscuro);
     color: #ffffff;
     padding: 1.5rem;
     border-radius: 12px;
-    border: 1px solid rgba(199, 125, 255, 0.35);
+    border: 1px solid rgba(149, 213, 178, 0.35);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     z-index: 4500;
     font-size: 0.85rem;
@@ -2064,7 +2096,7 @@ footer {
 }
 
 .banner-cookies a {
-    color: #e0aaff;
+    color: var(--verde-suave);
     font-weight: bold;
     text-decoration: underline;
 }
@@ -2090,13 +2122,13 @@ footer {
 }
 
 .btn-cookie-primario {
-    background-color: #007a4d;
+    background-color: var(--ambar-cta);
     color: #ffffff;
     border: none;
 }
 
 .btn-cookie-primario:hover {
-    background-color: #00633e;
+    background-color: var(--ambar-cta-hover);
 }
 
 .btn-cookie-secundario {
